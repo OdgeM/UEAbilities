@@ -19,7 +19,7 @@
                                     "uri": "file:///C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Source/UEAbilities/Private/Targeting/AoETargeting.cpp"
                                 },
                                 "region": {
-                                    "startLine": 32,
+                                    "startLine": 33,
                                     "startColumn": 21
                                 }
                             }
@@ -33,7 +33,7 @@
                                     "uri": "file:///C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Source/UEAbilities/Private/Targeting/AoETargeting.cpp"
                                 },
                                 "region": {
-                                    "startLine": 14,
+                                    "startLine": 15,
                                     "startColumn": 13
                                 }
                             },

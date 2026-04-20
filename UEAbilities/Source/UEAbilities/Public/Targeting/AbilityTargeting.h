@@ -19,4 +19,9 @@ public:
         const struct FAbilityTargetData& TargetData,
         TArray<AActor*>& OutTargets
     );
+
+    virtual void UpdatePreview(
+        APlayerController* PC,
+        const FHitResult& Hit
+    );
 };

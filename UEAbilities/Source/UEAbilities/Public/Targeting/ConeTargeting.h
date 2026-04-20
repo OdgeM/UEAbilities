@@ -27,4 +27,6 @@ public:
         const FAbilityTargetData& TargetData,
         TArray<AActor*>& OutTargets
     ) override;
+
+    virtual void UpdatePreview(APlayerController* PC, const FHitResult& Hit) override;
 };

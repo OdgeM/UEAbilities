@@ -28,4 +28,13 @@ public:
 			OutTargets.Add(TargetData.TargetActor);
 		}
 	}
+
+	virtual void UpdatePreview(
+		APlayerController* PC,
+		const FHitResult& Hit
+	) override;
+
+
+private:
+	TWeakObjectPtr<AActor> LastHighlightedActor;
 };

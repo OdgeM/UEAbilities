@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "AbilityComponent.h"
 #include "Engine/OverlapResult.h"
+#include "DrawDebugHelpers.h"
 
 
 
@@ -34,4 +35,21 @@ void UAoETargeting::GetTargets(
             OutTargets.Add(Actor);
         }
     }
+}
+
+void UAoETargeting::UpdatePreview(APlayerController* PC, const FHitResult& Hit) {
+    if (!PC) return;
+
+    UWorld* World = PC->GetWorld();
+    if (!World) return;
+
+    DrawDebugSphere(
+        World,
+        Hit.ImpactPoint,
+        Radius,
+        32,
+        FColor::Green,
+        false,
+        0.05f
+    );
 }

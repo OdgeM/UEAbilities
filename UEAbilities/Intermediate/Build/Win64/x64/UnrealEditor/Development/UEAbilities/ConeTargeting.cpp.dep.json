@@ -9,7 +9,15 @@
             "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\targeting\\conetargeting.h",
             "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\targeting\\abilitytargeting.h",
             "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\abilitytargeting.generated.h",
-            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\conetargeting.generated.h"
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\conetargeting.generated.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\abilitystructs.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\teamdata.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\teamdata.generated.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\abilitystructs.generated.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\abilitycomponent.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\abilitycomponent.generated.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\engine\\overlapresult.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\overlapresult.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

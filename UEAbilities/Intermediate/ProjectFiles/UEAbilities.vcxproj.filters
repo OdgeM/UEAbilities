@@ -156,6 +156,12 @@
     <ClCompile Include="..\..\Source\UEAbilities\Private\StatComponent.cpp">
       <Filter>Source\UEAbilities\Private</Filter>
     </ClCompile>
+    <Filter Include="Source\UEAbilities\Private\Controller">
+      <UniqueIdentifier>{1114C47B-7A1C-3866-8652-7C74A7D1C59C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UEAbilities\Private\Controller\MyPlayerController.cpp">
+      <Filter>Source\UEAbilities\Private\Controller</Filter>
+    </ClCompile>
     <Filter Include="Source\UEAbilities\Private\Effects">
       <UniqueIdentifier>{67C5B318-9E39-3F62-9322-AA6667CB2C78}</UniqueIdentifier>
     </Filter>
@@ -215,6 +221,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\UEAbilities\Public\TeamData.h">
       <Filter>Source\UEAbilities\Public</Filter>
+    </ClCompile>
+    <Filter Include="Source\UEAbilities\Public\Controller">
+      <UniqueIdentifier>{E1C6BB93-925B-3C23-9FCE-DC971C00D6D0}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UEAbilities\Public\Controller\MyPlayerController.h">
+      <Filter>Source\UEAbilities\Public\Controller</Filter>
     </ClCompile>
     <Filter Include="Source\UEAbilities\Public\Effects">
       <UniqueIdentifier>{4FBEC703-6A12-3581-85FB-C2B473606458}</UniqueIdentifier>
