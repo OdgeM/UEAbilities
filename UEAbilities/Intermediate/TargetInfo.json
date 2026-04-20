@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "UEAbilities",
+			"Path": "..\\Source\\UEAbilities.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "UEAbilitiesEditor",
+			"Path": "..\\Source\\UEAbilitiesEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

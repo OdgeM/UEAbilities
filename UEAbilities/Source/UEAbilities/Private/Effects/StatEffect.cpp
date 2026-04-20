@@ -1,0 +1,20 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#include "Effects/StatEffect.h"
+#include "StatComponent.h"
+
+
+void UStatEffect::Apply(AActor* Instigator, AActor* Target)
+{
+	if (!Target || !Instigator)
+		return;
+
+	UStatComponent* TargetStats = Target->FindComponentByClass<UStatComponent>();
+	if (!TargetStats) return;
+
+	for (const FStatModifier& Mod : Modifiers) {
+		if (TargetStats->HasStat(Mod.Stat)) {
+			TargetStats->ApplyModifier(Mod, Instigator);
+		}
+	}
+}

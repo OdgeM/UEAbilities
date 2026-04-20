@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\private\\targeting\\singletargeting.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\x64\\ueabilitieseditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ueabilities\\definitions.ueabilities.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\targeting\\singletargeting.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\abilitystructs.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\teamdata.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\teamdata.generated.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\abilitystructs.generated.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\targeting\\abilitytargeting.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\abilitytargeting.generated.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\singletargeting.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

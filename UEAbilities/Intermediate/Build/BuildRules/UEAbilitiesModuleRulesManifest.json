@@ -1,0 +1,10 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\ojmar\\OneDrive\\Documents\\GitHub\\UEAbilities\\UEAbilities\\Source\\UEAbilities\\UEAbilities.Build.cs",
+		"C:\\Users\\ojmar\\OneDrive\\Documents\\GitHub\\UEAbilities\\UEAbilities\\Plugins\\VisualStudioTools\\Source\\VisualStudioBlueprintDebuggerHelper\\VisualStudioBlueprintDebuggerHelper.Build.cs",
+		"C:\\Users\\ojmar\\OneDrive\\Documents\\GitHub\\UEAbilities\\UEAbilities\\Plugins\\VisualStudioTools\\Source\\VisualStudioTools\\VisualStudioTools.Build.cs",
+		"C:\\Users\\ojmar\\OneDrive\\Documents\\GitHub\\UEAbilities\\UEAbilities\\Source\\UEAbilities.Target.cs",
+		"C:\\Users\\ojmar\\OneDrive\\Documents\\GitHub\\UEAbilities\\UEAbilities\\Source\\UEAbilitiesEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.4"
+}

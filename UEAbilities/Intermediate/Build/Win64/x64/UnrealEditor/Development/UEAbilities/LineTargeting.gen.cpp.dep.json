@@ -1,0 +1,17 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\linetargeting.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\x64\\ueabilitieseditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ueabilities\\definitions.ueabilities.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\targeting\\linetargeting.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\targeting\\abilitytargeting.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\abilitytargeting.generated.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\linetargeting.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
