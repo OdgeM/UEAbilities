@@ -30,11 +30,11 @@ void UAoETargeting::GetTargets(
 
     for (const FOverlapResult& Result : Results)
     {
-        if (AActor* Actor = Result.GetActor())
+        if (AActor* TargetActor = Result.GetActor())
         {
-            OutTargets.Add(Actor);
+            OutTargets.Add(TargetActor);
         }
-    }
+    } 
 }
 
 void UAoETargeting::UpdatePreview(APlayerController* PC, const FHitResult& Hit) {

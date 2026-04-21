@@ -30,9 +30,11 @@ public:
 
     bool IsValidTarget(AActor* Instigator, AActor* Target) const; 
 
-protected:
     UPROPERTY(EditAnywhere, Instanced, Category = "Targeting")
     UAbilityTargeting* TargetingStrategy;
+
+protected:
+    
 
     UPROPERTY(EditAnywhere, Instanced)
     TArray<UAbilityEffect*> Effects;

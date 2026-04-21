@@ -23,10 +23,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ActivateAbility(int32 Index, const FAbilityTargetData& TargetData);
 
-
-protected:
 	UPROPERTY()
 	TArray<UAbility*> Abilities;
+
+
 	
 		
 };
