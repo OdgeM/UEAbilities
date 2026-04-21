@@ -3,11 +3,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "AbilityStructs.h"
 #include "MyPlayerController.generated.h"
 
 class UInputMappingContext;
 class UInputAction;
-
 
 /**
  * 
@@ -22,6 +22,8 @@ public:
 	virtual void SetupInputComponent() override;
 
 protected:
+	FHitResult LastHit;
+
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	UInputMappingContext* DefaultMappingContext;
@@ -57,8 +59,7 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY()
-	
-	FVector CurrentTargetLocation;
+	FAbilityTargetData LastTarget;
 
 private:
 	int32 CurrentAbilityIndex = INDEX_NONE;

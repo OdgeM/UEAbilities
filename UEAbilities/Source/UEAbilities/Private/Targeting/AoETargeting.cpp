@@ -11,10 +11,8 @@
 
 
 void UAoETargeting::GetTargets(
-    UAbilityComponent* AbilityComponent,
-    AActor* Actor,
-    const FAbilityTargetData& TargetData,
-    TArray<AActor*>& OutTargets
+     UAbilityComponent* AbilityComponent,
+     FAbilityTargetData& TargetData
 ) {
     TArray<FOverlapResult> Results;
 
@@ -32,12 +30,13 @@ void UAoETargeting::GetTargets(
     {
         if (AActor* TargetActor = Result.GetActor())
         {
-            OutTargets.Add(TargetActor);
+            TargetData.TargetActor.Add(TargetActor);
         }
     } 
 }
 
-void UAoETargeting::UpdatePreview(APlayerController* PC, const FHitResult& Hit) {
+void UAoETargeting::UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent) {
+    Super::UpdatePreview( PC, Hit, TargetData, AbilityComponent);
     if (!PC) return;
 
     UWorld* World = PC->GetWorld();

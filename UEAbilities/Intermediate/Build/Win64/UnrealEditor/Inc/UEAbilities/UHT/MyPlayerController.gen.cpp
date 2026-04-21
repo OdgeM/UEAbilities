@@ -6,16 +6,17 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "UEAbilities/Public/Controller/MyPlayerController.h"
+#include "UEAbilities/Public/AbilityStructs.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 
 // Begin Cross Module References
-COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 UEABILITIES_API UClass* Z_Construct_UClass_AMyPlayerController();
 UEABILITIES_API UClass* Z_Construct_UClass_AMyPlayerController_NoRegister();
+UEABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FAbilityTargetData();
 UPackage* Z_Construct_UPackage__Script_UEAbilities();
 // End Cross Module References
 
@@ -67,7 +68,7 @@ struct Z_Construct_UClass_AMyPlayerController_Statics
 		{ "Category", "Input" },
 		{ "ModuleRelativePath", "Public/Controller/MyPlayerController.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentTargetLocation_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LastTarget_MetaData[] = {
 		{ "ModuleRelativePath", "Public/Controller/MyPlayerController.h" },
 	};
 #endif // WITH_METADATA
@@ -78,7 +79,7 @@ struct Z_Construct_UClass_AMyPlayerController_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_IA_Ability3;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_IA_Ability4;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_IA_Confirm;
-	static const UECodeGen_Private::FStructPropertyParams NewProp_CurrentTargetLocation;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_LastTarget;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -93,7 +94,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyPlayerContr
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_IA_Ability3 = { "IA_Ability3", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, IA_Ability3), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IA_Ability3_MetaData), NewProp_IA_Ability3_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_IA_Ability4 = { "IA_Ability4", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, IA_Ability4), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IA_Ability4_MetaData), NewProp_IA_Ability4_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_IA_Confirm = { "IA_Confirm", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, IA_Confirm), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IA_Confirm_MetaData), NewProp_IA_Confirm_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_CurrentTargetLocation = { "CurrentTargetLocation", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, CurrentTargetLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentTargetLocation_MetaData), NewProp_CurrentTargetLocation_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_LastTarget = { "LastTarget", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, LastTarget), Z_Construct_UScriptStruct_FAbilityTargetData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LastTarget_MetaData), NewProp_LastTarget_MetaData) }; // 149681228
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyPlayerController_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_DefaultMappingContext,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_IA_Move,
@@ -102,7 +103,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyPlayer
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_IA_Ability3,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_IA_Ability4,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_IA_Confirm,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_CurrentTargetLocation,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_LastTarget,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AMyPlayerController_Statics::DependentSingletons[])() = {
@@ -146,10 +147,10 @@ AMyPlayerController::~AMyPlayerController() {}
 struct Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Controller_MyPlayerController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayerController, AMyPlayerController::StaticClass, TEXT("AMyPlayerController"), &Z_Registration_Info_UClass_AMyPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerController), 3421299771U) },
+		{ Z_Construct_UClass_AMyPlayerController, AMyPlayerController::StaticClass, TEXT("AMyPlayerController"), &Z_Registration_Info_UClass_AMyPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerController), 1174473250U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Controller_MyPlayerController_h_269386230(TEXT("/Script/UEAbilities"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Controller_MyPlayerController_h_1602516547(TEXT("/Script/UEAbilities"),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Controller_MyPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Controller_MyPlayerController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

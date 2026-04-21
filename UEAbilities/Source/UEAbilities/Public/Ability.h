@@ -33,6 +33,13 @@ public:
     UPROPERTY(EditAnywhere, Instanced, Category = "Targeting")
     UAbilityTargeting* TargetingStrategy;
 
+     void UpdatePreview(
+        APlayerController* PC,
+        const FHitResult& Hit,
+        FAbilityTargetData& TargetData,
+        UAbilityComponent* AbilityComponent
+    );
+
 protected:
     
 

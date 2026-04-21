@@ -13,15 +13,23 @@ class UEABILITIES_API UAbilityTargeting : public UObject
     GENERATED_BODY()
 
 public:
+
+
     virtual void GetTargets(
         UAbilityComponent* comp,
-        AActor* Instigator,
-        const struct FAbilityTargetData& TargetData,
-        TArray<AActor*>& OutTargets
+        FAbilityTargetData& TargetData
     );
 
     virtual void UpdatePreview(
         APlayerController* PC,
-        const FHitResult& Hit
+        const FHitResult& Hit,
+        FAbilityTargetData& TargetData,
+        UAbilityComponent* AbilityComponent
     );
+
+    virtual void ClearPreview(APlayerController* PC);
+
+protected:
+    TArray<TWeakObjectPtr<AActor>> HighlightedActors;
+    TArray<AActor*> TargetActors;
 };

@@ -17,22 +17,15 @@ class UEABILITIES_API USingleTargeting : public UAbilityTargeting
 	
 public:
 	virtual void GetTargets(
-		UAbilityComponent* AbilityComponent,
-		AActor*,
-		const FAbilityTargetData& TargetData,
-		TArray<AActor*>& OutTargets
-	) override
+		UAbilityComponent* Comp,
+		FAbilityTargetData& TargetData
+		) override
 	{
-		if (TargetData.TargetActor)
+		if (TargetData.HoverActor)
 		{
-			OutTargets.Add(TargetData.TargetActor);
+			TargetData.TargetActor.Add(TargetData.HoverActor);
 		}
-	}
-
-	virtual void UpdatePreview(
-		APlayerController* PC,
-		const FHitResult& Hit
-	) override;
+	};
 
 
 private:

@@ -19,10 +19,8 @@ public:
 
     virtual void GetTargets(
         UAbilityComponent* AbilityComponent,
-        AActor*,
-        const FAbilityTargetData& TargetData,
-        TArray<AActor*>& OutTargets
+        FAbilityTargetData& TargetData
     ) override;
 
-    virtual void UpdatePreview(APlayerController* PC, const FHitResult& Hit) override;
+    virtual void UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent) override;
 };

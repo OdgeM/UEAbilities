@@ -37,7 +37,10 @@ struct FAbilityTargetData
 	GENERATED_BODY()
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	AActor* TargetActor = nullptr;
+	AActor* HoverActor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<AActor*> TargetActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector TargetLocation = FVector::ZeroVector;

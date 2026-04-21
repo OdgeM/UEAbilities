@@ -42,7 +42,7 @@ struct Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::NewProp_Index = { "Index", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilityComponent_eventActivateAbility_Parms, Index), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::NewProp_TargetData = { "TargetData", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilityComponent_eventActivateAbility_Parms, TargetData), Z_Construct_UScriptStruct_FAbilityTargetData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetData_MetaData), NewProp_TargetData_MetaData) }; // 2765304079
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::NewProp_TargetData = { "TargetData", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilityComponent_eventActivateAbility_Parms, TargetData), Z_Construct_UScriptStruct_FAbilityTargetData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetData_MetaData), NewProp_TargetData_MetaData) }; // 149681228
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::NewProp_Index,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::NewProp_TargetData,
@@ -151,7 +151,7 @@ struct Z_Construct_UClass_UAbilityComponent_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UAbilityComponent_ActivateAbility, "ActivateAbility" }, // 1432141112
+		{ &Z_Construct_UFunction_UAbilityComponent_ActivateAbility, "ActivateAbility" }, // 3520386960
 		{ &Z_Construct_UFunction_UAbilityComponent_AddAbility, "AddAbility" }, // 369537780
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -211,10 +211,10 @@ UAbilityComponent::~UAbilityComponent() {}
 struct Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilityComponent, UAbilityComponent::StaticClass, TEXT("UAbilityComponent"), &Z_Registration_Info_UClass_UAbilityComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityComponent), 252981608U) },
+		{ Z_Construct_UClass_UAbilityComponent, UAbilityComponent::StaticClass, TEXT("UAbilityComponent"), &Z_Registration_Info_UClass_UAbilityComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityComponent), 2639208510U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityComponent_h_207540039(TEXT("/Script/UEAbilities"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityComponent_h_279922836(TEXT("/Script/UEAbilities"),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

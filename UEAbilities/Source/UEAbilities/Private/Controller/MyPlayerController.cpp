@@ -71,7 +71,7 @@ void AMyPlayerController::OnConfirm() {
 
 		FAbilityTargetData TargetData;
 		if (HitActor) {
-			TargetData.TargetActor = HitActor;
+			TargetData.HoverActor = HitActor;
 		}
 		TargetData.TargetLocation = Hit.ImpactPoint;
 
@@ -130,6 +130,20 @@ void AMyPlayerController::Tick(float DeltaTime) {
 
 	if (GetHitResultUnderCursor(ECC_Visibility, false, Hit))
 	{
-		Ability->TargetingStrategy->UpdatePreview(this, Hit);
+		if (Hit.Location != LastHit.Location) {
+			FAbilityTargetData TargetData;
+			if (Hit.GetActor()) {
+				TargetData.HoverActor = Hit.GetActor();
+			}
+			TargetData.TargetLocation = Hit.ImpactPoint;
+
+			Ability->UpdatePreview(this, Hit, TargetData, Comp);
+			LastHit = Hit;
+
+			
+
+			LastTarget = TargetData;
+		}
+		
 	}
 }

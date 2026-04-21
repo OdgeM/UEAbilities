@@ -169,6 +169,10 @@ struct Z_Construct_UScriptStruct_FAbilityTargetData_Statics
 		{ "BlueprintType", "true" },
 		{ "ModuleRelativePath", "Public/AbilityStructs.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_HoverActor_MetaData[] = {
+		{ "Category", "AbilityTargetData" },
+		{ "ModuleRelativePath", "Public/AbilityStructs.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TargetActor_MetaData[] = {
 		{ "Category", "AbilityTargetData" },
 		{ "ModuleRelativePath", "Public/AbilityStructs.h" },
@@ -178,7 +182,9 @@ struct Z_Construct_UScriptStruct_FAbilityTargetData_Statics
 		{ "ModuleRelativePath", "Public/AbilityStructs.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_TargetActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_HoverActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_TargetActor_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_TargetActor;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_TargetLocation;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
@@ -187,9 +193,13 @@ struct Z_Construct_UScriptStruct_FAbilityTargetData_Statics
 	}
 	static const UECodeGen_Private::FStructParams StructParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewProp_TargetActor = { "TargetActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FAbilityTargetData, TargetActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetActor_MetaData), NewProp_TargetActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewProp_HoverActor = { "HoverActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FAbilityTargetData, HoverActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HoverActor_MetaData), NewProp_HoverActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewProp_TargetActor_Inner = { "TargetActor", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewProp_TargetActor = { "TargetActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FAbilityTargetData, TargetActor), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetActor_MetaData), NewProp_TargetActor_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewProp_TargetLocation = { "TargetLocation", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FAbilityTargetData, TargetLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetLocation_MetaData), NewProp_TargetLocation_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FAbilityTargetData_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewProp_HoverActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewProp_TargetActor_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewProp_TargetActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewProp_TargetLocation,
 };
@@ -225,10 +235,10 @@ struct Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbiliti
 	};
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
 		{ FAbilityResources::StaticStruct, Z_Construct_UScriptStruct_FAbilityResources_Statics::NewStructOps, TEXT("AbilityResources"), &Z_Registration_Info_UScriptStruct_AbilityResources, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FAbilityResources), 3291796984U) },
-		{ FAbilityTargetData::StaticStruct, Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewStructOps, TEXT("AbilityTargetData"), &Z_Registration_Info_UScriptStruct_AbilityTargetData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FAbilityTargetData), 2765304079U) },
+		{ FAbilityTargetData::StaticStruct, Z_Construct_UScriptStruct_FAbilityTargetData_Statics::NewStructOps, TEXT("AbilityTargetData"), &Z_Registration_Info_UScriptStruct_AbilityTargetData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FAbilityTargetData), 149681228U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityStructs_h_89254059(TEXT("/Script/UEAbilities"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityStructs_h_2058597775(TEXT("/Script/UEAbilities"),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityStructs_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityStructs_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityStructs_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityStructs_h_Statics::EnumInfo));

@@ -23,14 +23,6 @@ AMyChar::AMyChar()
 void AMyChar::BeginPlay()
 {
 	Super::BeginPlay();
-	for (UActorComponent* Comp : GetComponents())
-	{
-		if (UPrimitiveComponent* Prim = Cast<UPrimitiveComponent>(Comp))
-		{
-			Prim->SetRenderCustomDepth(true);
-			Prim->SetCustomDepthStencilValue(1);
-		}
-	}
 }
 
 // Called every frame

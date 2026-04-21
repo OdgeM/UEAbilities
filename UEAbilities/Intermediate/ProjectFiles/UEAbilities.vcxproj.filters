@@ -198,6 +198,9 @@
     <ClCompile Include="..\..\Source\UEAbilities\Private\Targeting\SingleTargeting.cpp">
       <Filter>Source\UEAbilities\Private\Targeting</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UEAbilities\Private\Targeting\TargetHelpers.cpp">
+      <Filter>Source\UEAbilities\Private\Targeting</Filter>
+    </ClCompile>
     <Filter Include="Source\UEAbilities\Public">
       <UniqueIdentifier>{31D261D9-01B7-3FA8-A596-D6473E975B78}</UniqueIdentifier>
     </Filter>
@@ -262,6 +265,9 @@
       <Filter>Source\UEAbilities\Public\Targeting</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UEAbilities\Public\Targeting\SingleTargeting.h">
+      <Filter>Source\UEAbilities\Public\Targeting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UEAbilities\Public\Targeting\TargetHelpers.h">
       <Filter>Source\UEAbilities\Public\Targeting</Filter>
     </ClCompile>
   </ItemGroup>

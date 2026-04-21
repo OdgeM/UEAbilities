@@ -1,24 +1,27 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "Targeting/LineTargeting.h"
 #include "CoreMinimal.h"
 #include "AbilityStructs.h"
 #include "AbilityComponent.h"
 #include "GameFramework/Actor.h"
 #include "Targeting/AbilityTargeting.h"
 #include "Engine/HitResult.h"
-#include "Targeting/LineTargeting.h"
+
 
 void ULineTargeting::GetTargets(
     UAbilityComponent* AbilityComp,
-    AActor* Instigator,
-    const FAbilityTargetData&,
-    TArray<AActor*>& OutTargets
+     FAbilityTargetData& TargetData
 )
 {
-    if (!AbilityComp || !Instigator) return;
+    if (!AbilityComp) return;
 
-    FVector Start = Instigator->GetActorLocation();
-    FVector End = Start + Instigator->GetActorForwardVector() * Range;
+    AActor* Owner= AbilityComp->GetOwner();
+
+    if (!Owner) return;
+
+    FVector Start = Owner->GetActorLocation();
+    FVector End = Start + Owner->GetActorForwardVector() * Range;
 
     FHitResult Hit;
 
@@ -31,14 +34,17 @@ void ULineTargeting::GetTargets(
     {
         if (AActor* Actor = Hit.GetActor())
         {
-            OutTargets.Add(Actor);
+            TargetData.TargetActor.Add(Actor);
         }
     }
 }
 
-void ULineTargeting::UpdatePreview(APlayerController* PC, const FHitResult&)
+void ULineTargeting::UpdatePreview(APlayerController* PC, const FHitResult& Hit,  FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent)
 {
+    
     if (!PC) return;
+
+    Super::UpdatePreview(PC, Hit, TargetData, AbilityComponent);
 
     AActor* Pawn = PC->GetPawn();
     if (!Pawn) return;

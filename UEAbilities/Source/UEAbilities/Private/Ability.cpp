@@ -40,10 +40,8 @@ void UAbility::Activate(AActor* Instigator, const FAbilityTargetData& TargetData
 
     LastUsedTime = Instigator->GetWorld()->GetTimeSeconds();
 
-    TArray<AActor*> Targets;
-    TargetingStrategy->GetTargets(AbilityComp, Instigator, TargetData, Targets);
 
-    for (AActor* Target : Targets)
+    for (AActor* Target : TargetData.TargetActor)
     {
         if (!IsValidTarget(Instigator, Target)) continue;
 
@@ -57,6 +55,9 @@ void UAbility::Activate(AActor* Instigator, const FAbilityTargetData& TargetData
     }
 }
 
+void UAbility::UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent) {
+    //TargetingStrategy->UpdatePreview(PC, );
+}
 
 bool UAbility::CanActivate(AActor* Instigator) const{
 	float CurrentTime = Instigator->GetWorld()->GetTimeSeconds();

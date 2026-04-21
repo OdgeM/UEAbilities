@@ -10,11 +10,13 @@
 
 void UConeTargeting::GetTargets(
     UAbilityComponent* AbilityComp,
-    AActor* Instigator,
-    const FAbilityTargetData& TargetData,
-    TArray<AActor*>& OutTargets
+    FAbilityTargetData& TargetData
 ) {
-    if(!AbilityComp || !Instigator) return;
+    if(!AbilityComp) return;
+
+    AActor* Instigator = AbilityComp->GetOwner();
+
+    if (!Instigator) return;
 
     FVector Origin = Instigator->GetActorLocation();
     FVector Forward = Instigator->GetActorForwardVector();
@@ -41,13 +43,14 @@ void UConeTargeting::GetTargets(
         float Dot = FVector::DotProduct(Forward, Dir);
 
         if (Dot >= CosAngle) {
-            OutTargets.Add(Target);
+            TargetData.TargetActor.Add(Target);
         }
     }
 }
 
-void UConeTargeting::UpdatePreview(APlayerController* PC, const FHitResult& Hit)
+void UConeTargeting::UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent)
 {
+    Super::UpdatePreview(PC, Hit, TargetData, AbilityComponent);
     if (!PC) return;
 
     AActor* Pawn = PC->GetPawn();
