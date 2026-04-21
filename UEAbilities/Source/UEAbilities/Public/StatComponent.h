@@ -31,11 +31,15 @@ public:
 	bool HasStat(EStatsType Stat) const;
 	bool CanAfford(const FStatModifier& Mod) const;
 	bool CanAffordModifiers(const TArray<FStatModifier>& Mods) const;
+	void AddActiveTimer(FTimerHandle Handle);
 	
 
 protected:
 	UPROPERTY(EditAnywhere)
 	TMap<EStatsType, FStatData> BaseStats;
 	TMap<EStatsType, FStatData> CurrentStats;
+
+	UPROPERTY()
+	TArray<FTimerHandle> ActiveEffectTimers;
 		
 };

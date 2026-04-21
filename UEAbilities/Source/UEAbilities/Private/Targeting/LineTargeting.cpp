@@ -4,6 +4,7 @@
 #include "CoreMinimal.h"
 #include "AbilityStructs.h"
 #include "AbilityComponent.h"
+#include "Interfaces/Targetable.h"
 #include "GameFramework/Actor.h"
 #include "Targeting/AbilityTargeting.h"
 #include "Engine/HitResult.h"
@@ -34,7 +35,9 @@ void ULineTargeting::GetTargets(
     {
         if (AActor* Actor = Hit.GetActor())
         {
-            TargetData.TargetActor.Add(Actor);
+            if (Actor->GetClass()->ImplementsInterface(UTargetable::StaticClass())) {
+                TargetData.TargetActor.Add(Actor);
+            }
         }
     }
 }

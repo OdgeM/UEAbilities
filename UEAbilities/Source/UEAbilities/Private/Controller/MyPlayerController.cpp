@@ -9,6 +9,7 @@
 #include "GameFramework/Pawn.h"
 #include "AbilityComponent.h"
 #include "Targeting/AbilityTargeting.h"
+#include "Interfaces/Targetable.h"
 #include "Ability.h"
 #include "AbilityStructs.h"
 
@@ -91,6 +92,20 @@ void AMyPlayerController::StartTargeting(int32 AbilityIndex) {
 
 	CurrentAbilityIndex = AbilityIndex;
 	bIsTargeting = true;
+
+	APawn* CurrentPawn = GetPawn();
+	if (!CurrentPawn) return;
+
+	UAbilityComponent* Comp = CurrentPawn->FindComponentByClass<UAbilityComponent>();
+	if (!Comp) return;
+
+
+	if (!Comp->Abilities.IsValidIndex(CurrentAbilityIndex)) return;
+
+	UAbility* Ability = Comp->Abilities[CurrentAbilityIndex];
+	if (!Ability || !Ability->TargetingStrategy) return;
+
+	Ability->StartTargeting(CurrentPawn);
 }
 
 
@@ -130,18 +145,20 @@ void AMyPlayerController::Tick(float DeltaTime) {
 
 	if (GetHitResultUnderCursor(ECC_Visibility, false, Hit))
 	{
-		if (Hit.Location != LastHit.Location) {
+		if (Hit.Location != LastHit.Location||true) {
 			FAbilityTargetData TargetData;
 			if (Hit.GetActor()) {
-				TargetData.HoverActor = Hit.GetActor();
+
+				if (Hit.GetActor()->GetClass()->ImplementsInterface(UTargetable::StaticClass())) {
+					TargetData.HoverActor = Hit.GetActor();
+				}
+
 			}
 			TargetData.TargetLocation = Hit.ImpactPoint;
+			TargetData.TargetActor.Empty();
 
 			Ability->UpdatePreview(this, Hit, TargetData, Comp);
 			LastHit = Hit;
-
-			
-
 			LastTarget = TargetData;
 		}
 		

@@ -5,6 +5,7 @@
 #include "AbilityStructs.h"
 #include "GameFramework/Actor.h"
 #include "AbilityComponent.h"
+#include "Interfaces/Targetable.h"
 #include "Engine/OverlapResult.h"
 #include "DrawDebugHelpers.h"
 
@@ -28,8 +29,10 @@ void UAoETargeting::GetTargets(
 
     for (const FOverlapResult& Result : Results)
     {
-        if (AActor* TargetActor = Result.GetActor())
+        AActor * TargetActor = Result.GetActor();
+        if (TargetActor && TargetActor->GetClass()->ImplementsInterface(UTargetable::StaticClass()))
         {
+
             TargetData.TargetActor.Add(TargetActor);
         }
     } 

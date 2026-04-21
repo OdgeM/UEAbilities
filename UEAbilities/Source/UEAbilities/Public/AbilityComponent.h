@@ -11,7 +11,7 @@
 
 class UAbility;
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class UEABILITIES_API UAbilityComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -31,12 +31,5 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
 	TArray<TSubclassOf<UAbility>> AbilityClasses;
-
-
-
-
-
-	
-		
 };
 	

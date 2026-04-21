@@ -3,7 +3,7 @@
 #include "CoreMinimal.h"
 #include "TeamData.generated.h"
 
-UENUM(BlueprintType, meta = (Bitflags))
+UENUM(BlueprintType, meta = (Bitflags, UseEnumValuesAsMaskValuesInEditor = "true"))
 enum class ETeam : uint8
 {
     None = 0    UMETA(Hidden),

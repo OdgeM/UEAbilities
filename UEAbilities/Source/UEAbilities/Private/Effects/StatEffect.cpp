@@ -12,9 +12,24 @@ void UStatEffect::Apply(AActor* Instigator, AActor* Target)
 	UStatComponent* TargetStats = Target->FindComponentByClass<UStatComponent>();
 	if (!TargetStats) return;
 
-	for (const FStatModifier& Mod : Modifiers) {
-		if (TargetStats->HasStat(Mod.Stat)) {
-			TargetStats->ApplyModifier(Mod, Instigator);
+	for (const FStatModifier& Mod : Modifiers)
+	{
+		if (TargetStats->HasStat(Mod.Stat))
+		{
+			ApplyModifier(Instigator, Target, TargetStats, Mod);
 		}
 	}
 }
+
+void UStatEffect::ApplyModifier(
+	AActor* Instigator,
+	AActor* Target,
+	UStatComponent* Stats,
+	const FStatModifier& Mod
+)
+{
+
+	Stats->ApplyModifier(Mod, Instigator);
+}
+
+

@@ -11,7 +11,9 @@ enum class EStatsType : uint8
     Health,
     MovementSpeed,
     Damage,
-    Defense
+    Defense,
+    Mana,
+    Stamina
 };
 
 UENUM(BlueprintType)
@@ -38,4 +40,10 @@ struct FStatModifier
 
     UPROPERTY(EditAnywhere)
     float Duration = 0.f; // 0 = instant
+
+    UPROPERTY(EditAnywhere)
+    bool bOverTime = false;
+
+    UPROPERTY(EditAnywhere)
+    bool bTemporary = false;
 };

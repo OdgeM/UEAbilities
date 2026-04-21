@@ -40,6 +40,8 @@ public:
         UAbilityComponent* AbilityComponent
     );
 
+     void StartTargeting(AActor* Instigator);
+
 protected:
     
 
@@ -54,7 +56,6 @@ protected:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = "/Script/UEAbilities.ETeam"))
     int32 TargetableTeams;
-
 
     float LastUsedTime = -1000.0f;
 };

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UEAbilitiesModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab185d9c4da1e4406b91f1e48ad9caba40fde46c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0831d9625134844552f935a76e54f5e0b583132")]
 [assembly: System.Reflection.AssemblyProductAttribute("UEAbilitiesModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UEAbilitiesModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

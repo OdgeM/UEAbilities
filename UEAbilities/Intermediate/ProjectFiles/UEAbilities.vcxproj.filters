@@ -156,6 +156,9 @@
     <ClCompile Include="..\..\Source\UEAbilities\Private\StatComponent.cpp">
       <Filter>Source\UEAbilities\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UEAbilities\Private\TargetableActor.cpp">
+      <Filter>Source\UEAbilities\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\UEAbilities\Private\Controller">
       <UniqueIdentifier>{1114C47B-7A1C-3866-8652-7C74A7D1C59C}</UniqueIdentifier>
     </Filter>
@@ -220,6 +223,9 @@
       <Filter>Source\UEAbilities\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UEAbilities\Public\StatComponent.h">
+      <Filter>Source\UEAbilities\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UEAbilities\Public\TargetableActor.h">
       <Filter>Source\UEAbilities\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UEAbilities\Public\TeamData.h">

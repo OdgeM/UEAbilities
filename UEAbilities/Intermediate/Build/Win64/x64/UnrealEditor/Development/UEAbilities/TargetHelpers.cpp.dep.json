@@ -16,10 +16,14 @@
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystaticstypes.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystaticstypes.generated.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystatics.generated.h",
-            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\interfaces\\targetable.h",
             "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\teamdata.h",
             "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\teamdata.generated.h",
-            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\targetable.generated.h"
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\interfaces\\targetable.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\targetable.generated.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\public\\materials\\materialparametercollection.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\materialparametercollection.generated.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\public\\materials\\materialparametercollectioninstance.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\materialparametercollectioninstance.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

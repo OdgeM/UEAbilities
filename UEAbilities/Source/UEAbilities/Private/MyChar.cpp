@@ -12,7 +12,7 @@ AMyChar::AMyChar()
 	PrimaryActorTick.bCanEverTick = true;
 
 	// Create Ability Component
-	AbilityComponent = CreateDefaultSubobject<UAbilityComponent>(TEXT("AbilityComponent"));
+		AbilityComponent = CreateDefaultSubobject<UAbilityComponent>(TEXT("AbilityComponent"));
 
 	// Create Stat Component
 	StatComponent = CreateDefaultSubobject<UStatComponent>(TEXT("StatComponent"));

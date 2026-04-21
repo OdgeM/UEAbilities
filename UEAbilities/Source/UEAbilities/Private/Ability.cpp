@@ -55,8 +55,14 @@ void UAbility::Activate(AActor* Instigator, const FAbilityTargetData& TargetData
     }
 }
 
+void UAbility::StartTargeting(AActor* Instigator) {
+    if (!TargetingStrategy) return;
+
+    TargetingStrategy->StartTargeting(Instigator, this);
+}
+
 void UAbility::UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent) {
-    //TargetingStrategy->UpdatePreview(PC, );
+    TargetingStrategy->UpdatePreview(PC, Hit, TargetData, AbilityComponent);
 }
 
 bool UAbility::CanActivate(AActor* Instigator) const{
@@ -71,6 +77,7 @@ bool UAbility::IsValidTarget(AActor* Instigator, AActor* Target) const
 	if (!Target->Implements<UTargetable>()) return false;
 
 	ETeam TargetTeam = ITargetable::Execute_GetTeam(Target);
-
+    if (GEngine)
+        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::FromInt((TargetableTeams & (int32)TargetTeam) != 0));
 	return (TargetableTeams & (int32)TargetTeam) != 0;
 }

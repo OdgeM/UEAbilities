@@ -4,6 +4,7 @@
 #include "Targeting/ConeTargeting.h"
 #include "AbilityStructs.h"
 #include "GameFramework/Actor.h"
+#include "Interfaces/Targetable.h"
 #include "AbilityComponent.h"
 #include "Engine/HitResult.h"
 #include "Engine/OverlapResult.h"
@@ -42,7 +43,7 @@ void UConeTargeting::GetTargets(
         FVector Dir = (Target->GetActorLocation() - Origin).GetSafeNormal();
         float Dot = FVector::DotProduct(Forward, Dir);
 
-        if (Dot >= CosAngle) {
+        if (Dot >= CosAngle && Target->GetClass()->ImplementsInterface(UTargetable::StaticClass())) {
             TargetData.TargetActor.Add(Target);
         }
     }

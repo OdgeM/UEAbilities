@@ -6,6 +6,8 @@
 #include "AbilityEffect.h"
 #include "StatEffect.generated.h"
 
+struct UStatComponent;
+
 /**
  * 
  */
@@ -20,4 +22,18 @@ public:
 protected:
 	UPROPERTY(EditAnywhere)
 	TArray<FStatModifier> Modifiers;
+private:
+	void ApplyModifier(
+		AActor* Instigator,
+		AActor* Target,
+		UStatComponent* TargetStats,
+		const FStatModifier& Mod
+	);
+
+	void ApplyOverTime(
+		AActor* Instigator,
+		AActor* Target,
+		UStatComponent* Stats,
+		const FStatModifier& Mod
+	);
 };

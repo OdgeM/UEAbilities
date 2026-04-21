@@ -6,6 +6,7 @@
 
 struct FAbilityTargetData;
 class UAbilityComponent;
+class UAbility;
 
 UCLASS(Abstract, Blueprintable, EditInlineNew, DefaultToInstanced)
 class UEABILITIES_API UAbilityTargeting : public UObject
@@ -29,7 +30,10 @@ public:
 
     virtual void ClearPreview(APlayerController* PC);
 
+    void StartTargeting(AActor* Instigator, UAbility* Ability);
+
 protected:
     TArray<TWeakObjectPtr<AActor>> HighlightedActors;
+    TArray<TWeakObjectPtr<AActor>> TargetableActors;
     TArray<AActor*> TargetActors;
 };

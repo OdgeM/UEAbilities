@@ -15,7 +15,9 @@
             "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\abilitystructs.generated.h",
             "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\linetargeting.generated.h",
             "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\abilitycomponent.h",
-            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\abilitycomponent.generated.h"
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\abilitycomponent.generated.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\source\\ueabilities\\public\\interfaces\\targetable.h",
+            "c:\\users\\ojmar\\onedrive\\documents\\github\\ueabilities\\ueabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\ueabilities\\uht\\targetable.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
