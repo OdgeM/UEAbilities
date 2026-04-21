@@ -45,7 +45,7 @@ protected:
     UPROPERTY(EditAnywhere, Category="Cost")
     TArray<FStatModifier> Costs;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = "ETeam"))
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = "/Script/UEAbilities.ETeam"))
     int32 TargetableTeams;
 
 

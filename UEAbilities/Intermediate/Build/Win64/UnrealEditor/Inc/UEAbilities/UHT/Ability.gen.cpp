@@ -116,7 +116,7 @@ struct Z_Construct_UClass_UAbility_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TargetableTeams_MetaData[] = {
 		{ "Bitmask", "" },
-		{ "BitmaskEnum", "ETeam" },
+		{ "BitmaskEnum", "/Script/UEAbilities.ETeam" },
 		{ "Category", "Ability" },
 		{ "ModuleRelativePath", "Public/Ability.h" },
 	};
@@ -139,8 +139,8 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbility_Stati
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_Effects_Inner = { "Effects", nullptr, (EPropertyFlags)0x0002000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UAbilityEffect_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Effects_Inner_MetaData), NewProp_Effects_Inner_MetaData) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_Effects = { "Effects", nullptr, (EPropertyFlags)0x0020088000000009, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbility, Effects), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Effects_MetaData), NewProp_Effects_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_Cooldown = { "Cooldown", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbility, Cooldown), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Cooldown_MetaData), NewProp_Cooldown_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_Costs_Inner = { "Costs", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FStatModifier, METADATA_PARAMS(0, nullptr) }; // 614454651
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_Costs = { "Costs", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbility, Costs), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Costs_MetaData), NewProp_Costs_MetaData) }; // 614454651
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_Costs_Inner = { "Costs", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FStatModifier, METADATA_PARAMS(0, nullptr) }; // 852182019
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_Costs = { "Costs", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbility, Costs), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Costs_MetaData), NewProp_Costs_MetaData) }; // 852182019
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UAbility_Statics::NewProp_TargetableTeams = { "TargetableTeams", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbility, TargetableTeams), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetableTeams_MetaData), NewProp_TargetableTeams_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAbility_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbility_Statics::NewProp_TargetingStrategy,
@@ -195,10 +195,10 @@ struct Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbiliti
 		{ ETargetingMode_StaticEnum, TEXT("ETargetingMode"), &Z_Registration_Info_UEnum_ETargetingMode, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2377969883U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UAbility, UAbility::StaticClass, TEXT("UAbility"), &Z_Registration_Info_UClass_UAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbility), 4283068159U) },
+		{ Z_Construct_UClass_UAbility, UAbility::StaticClass, TEXT("UAbility"), &Z_Registration_Info_UClass_UAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbility), 684141897U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_400123655(TEXT("/Script/UEAbilities"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_1115414687(TEXT("/Script/UEAbilities"),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_Statics::EnumInfo));

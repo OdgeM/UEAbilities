@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "AbilityStructs.h"
 #include "TimerManager.h"
+
 #include "AbilityComponent.generated.h"
 
 class UAbility;
@@ -16,6 +17,7 @@ class UEABILITIES_API UAbilityComponent : public UActorComponent
 	GENERATED_BODY()
 
 public:	
+	virtual void BeginPlay() override;
 	// Sets default values for this component's properties
 	UAbilityComponent();
 	UFUNCTION(BlueprintCallable)
@@ -23,8 +25,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ActivateAbility(int32 Index, const FAbilityTargetData& TargetData);
 
+	
 	UPROPERTY()
 	TArray<UAbility*> Abilities;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
+	TArray<TSubclassOf<UAbility>> AbilityClasses;
+
+
+
 
 
 	

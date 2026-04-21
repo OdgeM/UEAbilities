@@ -12,7 +12,9 @@ struct FStatData
 {
 	GENERATED_BODY()
 	
+	UPROPERTY(EditAnywhere)
 	float Current;
+	UPROPERTY(EditAnywhere)
 	float Max;
 };
 

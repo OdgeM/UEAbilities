@@ -95,14 +95,24 @@ void AMyPlayerController::StartTargeting(int32 AbilityIndex) {
 
 
 void AMyPlayerController::Move() {
+	const FVector InputValue = MoveActionBinding->GetValue().Get<FVector>();
+	APawn* CurrentPawn = GetPawn();
 	
+	if (!CurrentPawn) return;
+	
+	FVector Right = CurrentPawn->GetActorRightVector();
+	FVector Forward = CurrentPawn->GetActorForwardVector();
+
+
+
+	CurrentPawn->AddMovementInput(Forward, InputValue.X);
+	CurrentPawn->AddMovementInput(Right, InputValue.Y);
 }
 
 void AMyPlayerController::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
 
-	const FVector2D InputValue = MoveActionBinding->GetValue().Get<FVector2D>();
-	GEngine->AddOnScreenDebugMessage(-1, 0.f, FColor::Yellow, InputValue.ToString());
+
 	if (!bIsTargeting) return;
 
 	APawn* CurrentPawn = GetPawn();

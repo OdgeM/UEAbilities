@@ -164,7 +164,13 @@
 				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/NewMap.umap",
 				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/Character/BP_MyPlayerController.uasset",
 				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/InputActions/Move.uasset",
-				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/InputActions/IA_Move.uasset"
+				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/InputActions/IA_Move.uasset",
+				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/Materials/M_Outline.uasset",
+				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/__ExternalActors__/NewMap/9/5T/YEEQ4FYAFRF52YJT788BKR.uasset",
+				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/Materials/Functions/MF_GetKernel.uasset",
+				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/Materials/Functions/MF_DetectEdges.uasset",
+				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/Materials/Functions/MF_DetectNormals.uasset",
+				"C:/Users/ojmar/OneDrive/Documents/GitHub/UEAbilities/UEAbilities/Content/Materials/Functions/MF_GrazingAngle.uasset"
 			]
 		}
 	]

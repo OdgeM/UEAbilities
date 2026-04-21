@@ -2,7 +2,6 @@
 	"RemapUnityFiles": 
 	{
 		"Module.UEAbilities.cpp.obj": [
-			"AbilityComponent.gen.cpp.obj",
 			"AbilityEffect.gen.cpp.obj",
 			"AbilityStructs.gen.cpp.obj",
 			"AbilityTargeting.gen.cpp.obj",
@@ -10,10 +9,8 @@
 			"ConeTargeting.gen.cpp.obj",
 			"LineTargeting.gen.cpp.obj",
 			"MyChar.gen.cpp.obj",
+			"MyPlayerController.gen.cpp.obj",
 			"SingleTargeting.gen.cpp.obj",
-			"StatComponent.gen.cpp.obj",
-			"StatData.gen.cpp.obj",
-			"StatEffect.gen.cpp.obj",
 			"Targetable.gen.cpp.obj",
 			"TeamData.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
@@ -22,20 +19,23 @@
 			"StatEffect.cpp.obj",
 			"Targetable.cpp.obj",
 			"MyChar.cpp.obj",
-			"StatComponent.cpp.obj",
 			"StatData.cpp.obj",
 			"AbilityTargeting.cpp.obj",
+			"AoETargeting.cpp.obj",
 			"ConeTargeting.cpp.obj",
 			"LineTargeting.cpp.obj",
 			"SingleTargeting.cpp.obj",
 			"UEAbilities.cpp.obj",
 			"Ability.gen.cpp.obj",
-			"MyPlayerController.gen.cpp.obj",
+			"AbilityComponent.gen.cpp.obj",
+			"StatComponent.gen.cpp.obj",
+			"StatData.gen.cpp.obj",
+			"StatEffect.gen.cpp.obj",
 			"UEAbilities.init.gen.cpp.obj",
 			"Ability.cpp.obj",
 			"AbilityComponent.cpp.obj",
 			"MyPlayerController.cpp.obj",
-			"AoETargeting.cpp.obj"
+			"StatComponent.cpp.obj"
 		]
 	}
 }

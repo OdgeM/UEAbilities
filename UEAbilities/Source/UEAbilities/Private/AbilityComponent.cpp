@@ -16,10 +16,23 @@ UAbilityComponent::UAbilityComponent()
 	// ...
 }
 
+void UAbilityComponent::BeginPlay() {
+	Super::BeginPlay();
+	Abilities.Empty();
+	for (TSubclassOf<UAbility> AbilityClass : AbilityClasses)
+	{
+		if (AbilityClass)
+		{
+			AddAbility(AbilityClass);
+		}
+	}
+}
+
 
 void UAbilityComponent::AddAbility(TSubclassOf<UAbility> AbilityClass) {
 	if (!AbilityClass) return;
-
+	if (GEngine)
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("HERE"));
 	UAbility* NewAbility = NewObject<UAbility>(this, AbilityClass);
 	Abilities.Add(NewAbility);
 }

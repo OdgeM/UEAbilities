@@ -9,7 +9,6 @@ UENUM(BlueprintType)
 enum class EStatsType : uint8
 {
     Health,
-    MaxHealth,
     MovementSpeed,
     Damage,
     Defense

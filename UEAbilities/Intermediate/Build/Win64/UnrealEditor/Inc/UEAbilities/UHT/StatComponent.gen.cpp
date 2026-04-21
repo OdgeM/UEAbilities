@@ -38,20 +38,38 @@ struct Z_Construct_UScriptStruct_FStatData_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/StatComponent.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Current_MetaData[] = {
+		{ "Category", "StatData" },
+		{ "ModuleRelativePath", "Public/StatComponent.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Max_MetaData[] = {
+		{ "Category", "StatData" },
+		{ "ModuleRelativePath", "Public/StatComponent.h" },
+	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_Current;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_Max;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FStatData>();
 	}
 	static const UECodeGen_Private::FStructParams StructParams;
 };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FStatData_Statics::NewProp_Current = { "Current", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FStatData, Current), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Current_MetaData), NewProp_Current_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FStatData_Statics::NewProp_Max = { "Max", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FStatData, Max), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Max_MetaData), NewProp_Max_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FStatData_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FStatData_Statics::NewProp_Current,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FStatData_Statics::NewProp_Max,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FStatData_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FStatData_Statics::StructParams = {
 	(UObject* (*)())Z_Construct_UPackage__Script_UEAbilities,
 	nullptr,
 	&NewStructOps,
 	"StatData",
-	nullptr,
-	0,
+	Z_Construct_UScriptStruct_FStatData_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FStatData_Statics::PropPointers),
 	sizeof(FStatData),
 	alignof(FStatData),
 	RF_Public|RF_Transient|RF_MarkAsNative,
@@ -102,10 +120,10 @@ struct Z_Construct_UClass_UStatComponent_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UStatComponent_Statics::NewProp_BaseStats_ValueProp = { "BaseStats", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FStatData, METADATA_PARAMS(0, nullptr) }; // 494266697
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UStatComponent_Statics::NewProp_BaseStats_ValueProp = { "BaseStats", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FStatData, METADATA_PARAMS(0, nullptr) }; // 125717495
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UStatComponent_Statics::NewProp_BaseStats_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UStatComponent_Statics::NewProp_BaseStats_Key_KeyProp = { "BaseStats_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_UEAbilities_EStatsType, METADATA_PARAMS(0, nullptr) }; // 3083472650
-const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UStatComponent_Statics::NewProp_BaseStats = { "BaseStats", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UStatComponent, BaseStats), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BaseStats_MetaData), NewProp_BaseStats_MetaData) }; // 3083472650 494266697
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UStatComponent_Statics::NewProp_BaseStats_Key_KeyProp = { "BaseStats_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_UEAbilities_EStatsType, METADATA_PARAMS(0, nullptr) }; // 995069620
+const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UStatComponent_Statics::NewProp_BaseStats = { "BaseStats", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UStatComponent, BaseStats), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BaseStats_MetaData), NewProp_BaseStats_MetaData) }; // 995069620 125717495
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UStatComponent_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStatComponent_Statics::NewProp_BaseStats_ValueProp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStatComponent_Statics::NewProp_BaseStats_Key_KeyProp_Underlying,
@@ -154,13 +172,13 @@ UStatComponent::~UStatComponent() {}
 struct Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FStatData::StaticStruct, Z_Construct_UScriptStruct_FStatData_Statics::NewStructOps, TEXT("StatData"), &Z_Registration_Info_UScriptStruct_StatData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FStatData), 494266697U) },
+		{ FStatData::StaticStruct, Z_Construct_UScriptStruct_FStatData_Statics::NewStructOps, TEXT("StatData"), &Z_Registration_Info_UScriptStruct_StatData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FStatData), 125717495U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UStatComponent, UStatComponent::StaticClass, TEXT("UStatComponent"), &Z_Registration_Info_UClass_UStatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UStatComponent), 800176559U) },
+		{ Z_Construct_UClass_UStatComponent, UStatComponent::StaticClass, TEXT("UStatComponent"), &Z_Registration_Info_UClass_UStatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UStatComponent), 3250774167U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_3170274766(TEXT("/Script/UEAbilities"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_2384510884(TEXT("/Script/UEAbilities"),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_Statics::ScriptStructInfo),
 	nullptr, 0);
