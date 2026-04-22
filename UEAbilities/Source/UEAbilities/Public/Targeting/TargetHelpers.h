@@ -12,5 +12,6 @@ namespace TargetingHelpers
 	void ClearHighlight(AActor* Actor);
 	void GetAllTargetables(UWorld* World, TArray<AActor*>& OutActors);
 	void SetTargeted(AActor* Actor, bool bEnabled);
+	bool IsTargetable(AActor* Actor);
 
 }

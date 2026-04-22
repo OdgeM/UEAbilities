@@ -43,7 +43,7 @@ void UAbilityTargeting::ClearPreview(APlayerController* PC)
             TargetingHelpers::ClearHighlight(Actor.Get());
         }
     }
-
+    TargetableActors.Empty();
     HighlightedActors.Empty();
 }
 
@@ -51,8 +51,7 @@ void UAbilityTargeting::StartTargeting(AActor* Instigator, UAbility* Ability) {
     if (!Instigator) return;
     TargetActors.Empty();
 
-    if (GEngine)
-        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("STARTING TARGETING"));
+
     UWorld* World = Instigator->GetWorld();
 
     TArray<AActor*> OutActors;

@@ -6,7 +6,7 @@
 #include "AbilityEffect.h"
 #include "StatEffect.generated.h"
 
-struct UStatComponent;
+class UStatComponent;
 
 /**
  * 
@@ -17,7 +17,8 @@ class UEABILITIES_API UStatEffect : public UAbilityEffect
 	GENERATED_BODY()
 	
 public:
-	virtual void Apply(AActor* Instigator, AActor* Target) override;
+	virtual void Apply(AActor* Instigator, const FAbilityTargetData& TargetData,  UAbility* Ability) override;
+	void ApplyToActor(AActor* Instigator, AActor* Target);
 
 protected:
 	UPROPERTY(EditAnywhere)
@@ -30,10 +31,4 @@ private:
 		const FStatModifier& Mod
 	);
 
-	void ApplyOverTime(
-		AActor* Instigator,
-		AActor* Target,
-		UStatComponent* Stats,
-		const FStatModifier& Mod
-	);
 };

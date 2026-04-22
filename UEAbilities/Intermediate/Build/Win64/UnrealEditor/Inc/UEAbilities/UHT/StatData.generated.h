@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define UEABILITIES_StatData_generated_h
 
-#define FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Stats_StatData_h_30_GENERATED_BODY \
+#define FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Stats_StatData_h_28_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FStatModifier_Statics; \
 	UEABILITIES_API static class UScriptStruct* StaticStruct();
 
@@ -28,8 +28,6 @@ template<> UEABILITIES_API UScriptStruct* StaticStruct<struct FStatModifier>();
 #define FOREACH_ENUM_ESTATSTYPE(op) \
 	op(EStatsType::Health) \
 	op(EStatsType::MovementSpeed) \
-	op(EStatsType::Damage) \
-	op(EStatsType::Defense) \
 	op(EStatsType::Mana) \
 	op(EStatsType::Stamina) 
 

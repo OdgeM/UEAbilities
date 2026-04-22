@@ -17,10 +17,12 @@ UAbility::UAbility()
 {
 }
 
-void UAbility::Activate(AActor* Instigator, const FAbilityTargetData& TargetData)
+void UAbility::Activate(AActor* Instigator,  FAbilityTargetData& TargetData)
 {
 
     if (!Instigator||!TargetingStrategy || !CanActivate(Instigator)) return;
+    
+
     UStatComponent* Stats = Instigator->FindComponentByClass<UStatComponent>();
 
     if (!Stats) return;
@@ -29,9 +31,6 @@ void UAbility::Activate(AActor* Instigator, const FAbilityTargetData& TargetData
 
     if (!AbilityComp) return;
 
-    if (!Stats->CanAffordModifiers(Costs)) {
-        return;
-    }
 
     for (const FStatModifier& Cost : Costs)
     {
@@ -39,20 +38,21 @@ void UAbility::Activate(AActor* Instigator, const FAbilityTargetData& TargetData
     }
 
     LastUsedTime = Instigator->GetWorld()->GetTimeSeconds();
+    if (TargetingStrategy) {
+        TargetData.TargetActor.Empty();
+        TargetingStrategy->GetTargets(AbilityComp, TargetData);
+    }
 
-
-    for (AActor* Target : TargetData.TargetActor)
+    for (UAbilityEffect* Effect : Effects)
     {
-        if (!IsValidTarget(Instigator, Target)) continue;
-
-        for (UAbilityEffect* Effect : Effects)
+        if (Effect)
         {
-            if (Effect)
-            {
-                Effect->Apply(Instigator, Target);
-            }
+            Effect->Apply(Instigator, TargetData, this);
         }
     }
+
+    
+
 }
 
 void UAbility::StartTargeting(AActor* Instigator) {
@@ -65,9 +65,24 @@ void UAbility::UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbil
     TargetingStrategy->UpdatePreview(PC, Hit, TargetData, AbilityComponent);
 }
 
+void UAbility::StopTargeting(APlayerController* PC) {
+
+    if (!TargetingStrategy) return;
+
+    TargetingStrategy->ClearPreview(PC);
+}
+
 bool UAbility::CanActivate(AActor* Instigator) const{
+
+
 	float CurrentTime = Instigator->GetWorld()->GetTimeSeconds();
-	return (CurrentTime - LastUsedTime) >= Cooldown;
+
+    UStatComponent* Stats = Instigator->FindComponentByClass<UStatComponent>();
+
+    if (!Stats) return true;
+
+
+	return ((CurrentTime - LastUsedTime) >= Cooldown)&&(Stats->CanAffordModifiers(Costs));
 }
 
 
@@ -77,7 +92,6 @@ bool UAbility::IsValidTarget(AActor* Instigator, AActor* Target) const
 	if (!Target->Implements<UTargetable>()) return false;
 
 	ETeam TargetTeam = ITargetable::Execute_GetTeam(Target);
-    if (GEngine)
-        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::FromInt((TargetableTeams & (int32)TargetTeam) != 0));
+
 	return (TargetableTeams & (int32)TargetTeam) != 0;
 }

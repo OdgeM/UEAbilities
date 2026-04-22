@@ -10,8 +10,6 @@ enum class EStatsType : uint8
 {
     Health,
     MovementSpeed,
-    Damage,
-    Defense,
     Mana,
     Stamina
 };

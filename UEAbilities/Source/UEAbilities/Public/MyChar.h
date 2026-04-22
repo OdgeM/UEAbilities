@@ -28,10 +28,10 @@ public:
 	virtual ETeam GetTeam_Implementation() const override;
 
 protected:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UPROPERTY(VisibleAnywhere, Instanced, BlueprintReadOnly, Category = "Components")
 	UAbilityComponent* AbilityComponent;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UPROPERTY(VisibleAnywhere, Instanced, BlueprintReadOnly, Category = "Components")
 	UStatComponent* StatComponent;
 
 	// Called when the game starts or when spawned

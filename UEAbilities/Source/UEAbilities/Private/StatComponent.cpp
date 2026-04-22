@@ -9,15 +9,28 @@ void UStatComponent::BeginPlay() {
     CurrentStats = BaseStats;
 }
 
-float UStatComponent::GetStat(EStatsType Stat) const
+bool UStatComponent::GetStat(EStatsType Stat, FStatData& OutStat) const
 {
     if (HasStat(Stat))
     {
-        return CurrentStats[Stat].Current;
+        OutStat = CurrentStats[Stat];
+        return true;
+    }
+
+    OutStat = FStatData();
+    return false;
+}
+
+float UStatComponent::GetStatMax(EStatsType Stat) const
+{
+    if (HasStat(Stat))
+    {
+        return CurrentStats[Stat].Max;
     }
 
     return -1.f;
 }
+
 
 bool UStatComponent::HasStat(EStatsType Stat) const
 {
@@ -37,43 +50,49 @@ void UStatComponent::ApplyModifier(const FStatModifier& Mod, AActor* Instigator)
         const float TickInterval = 1.f;
         float Elapsed = 0.f;
 
-        FTimerHandle TickHandle;
+        float Difference = 0.f;
+        switch (Mod.Operation)
+        {
+        case EModifierOp::Add:
+            Difference = Mod.Value;
+            break;
+        case EModifierOp::Multiply:
+            Difference = Value * Mod.Value - Value;
+            break;
+        case EModifierOp::Override:
+            Difference = Mod.Value - Value;
+            break;
+        }
+
+        float PerTick = (Difference / Mod.Duration) * TickInterval;
+        // Smart Pointer to Timer Handle
+        TSharedRef<FTimerHandle> HandleRef = MakeShared<FTimerHandle>();
+
         // DoT Path
         GetWorld()->GetTimerManager().SetTimer(
-            TickHandle,
-            [this, Mod, TickInterval, Elapsed, TickHandle]() mutable
+            *HandleRef,
+            [this, Mod, TickInterval, Elapsed, HandleRef, PerTick]() mutable
             {
                 if (!CurrentStats.Contains(Mod.Stat)) return;
 
                 float& TickValue = CurrentStats[Mod.Stat].Current;
 
-                switch (Mod.Operation)
-                {
-                case EModifierOp::Add:
-                    TickValue += Mod.Value;
-                    break;
-                case EModifierOp::Multiply:
-                    TickValue *= Mod.Value;
-                    break;
-                case EModifierOp::Override:
-                    TickValue = Mod.Value;
-                    break;
-                }
-
+                TickValue += PerTick;
+                
                 TickValue = FMath::Clamp(TickValue, 0.f, CurrentStats[Mod.Stat].Max);
 
                 Elapsed += TickInterval;
-
+                
                 if (Elapsed >= Mod.Duration)
                 {
-                    GetWorld()->GetTimerManager().ClearTimer(TickHandle);
+                    GetWorld()->GetTimerManager().ClearTimer(*HandleRef);
                 }
             },
             TickInterval,
             true
         );
 
-        ActiveEffectTimers.Add(TickHandle);
+        ActiveEffectTimers.Add(*HandleRef);
         return;
     }
 
@@ -94,7 +113,7 @@ void UStatComponent::ApplyModifier(const FStatModifier& Mod, AActor* Instigator)
     }
 
     Value = FMath::Clamp(Value, 0.f, CurrentStats[Mod.Stat].Max);
-
+   
     // Temporary Revert
     if (Mod.Duration > 0.f && Mod.bTemporary)
     {

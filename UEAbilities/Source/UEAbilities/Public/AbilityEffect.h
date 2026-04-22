@@ -8,6 +8,8 @@
 #include "AbilityEffect.generated.h"
 
 class UAbilityComponent;
+class UAbility;
+struct FAbilityTargetData;
 
 /**
  * 
@@ -18,5 +20,5 @@ class UEABILITIES_API UAbilityEffect : public UObject
     GENERATED_BODY()
 
 public:
-    virtual void Apply(AActor* Instigator, AActor* Target);
+    virtual void Apply(AActor* Instigator, const FAbilityTargetData& TargetData, UAbility* Ability);
 };

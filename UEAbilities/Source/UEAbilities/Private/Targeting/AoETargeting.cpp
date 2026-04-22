@@ -17,25 +17,14 @@ void UAoETargeting::GetTargets(
 ) {
     TArray<FOverlapResult> Results;
 
-    FCollisionShape Sphere = FCollisionShape::MakeSphere(Radius);
-
-    AbilityComponent->GetWorld()->OverlapMultiByChannel(
-        Results,
-        TargetData.TargetLocation,
-        FQuat::Identity,
-        ECC_Pawn,
-        Sphere
-    );
-
-    for (const FOverlapResult& Result : Results)
-    {
-        AActor * TargetActor = Result.GetActor();
-        if (TargetActor && TargetActor->GetClass()->ImplementsInterface(UTargetable::StaticClass()))
-        {
-
-            TargetData.TargetActor.Add(TargetActor);
+    for (const auto& A : TargetableActors) {
+        if (A.IsValid()) {
+            float Distance = FVector::Distance(A.Get()->GetActorLocation(), TargetData.TargetLocation);
+            if (Distance <= Radius) {
+                TargetData.TargetActor.Add(A.Get());
+            }
         }
-    } 
+    }
 }
 
 void UAoETargeting::UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent) {

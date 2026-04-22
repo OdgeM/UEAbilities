@@ -35,8 +35,6 @@ struct Z_Construct_UEnum_UEAbilities_EStatsType_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Damage.Name", "EStatsType::Damage" },
-		{ "Defense.Name", "EStatsType::Defense" },
 		{ "Health.Name", "EStatsType::Health" },
 		{ "Mana.Name", "EStatsType::Mana" },
 		{ "ModuleRelativePath", "Public/Stats/StatData.h" },
@@ -47,8 +45,6 @@ struct Z_Construct_UEnum_UEAbilities_EStatsType_Statics
 	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
 		{ "EStatsType::Health", (int64)EStatsType::Health },
 		{ "EStatsType::MovementSpeed", (int64)EStatsType::MovementSpeed },
-		{ "EStatsType::Damage", (int64)EStatsType::Damage },
-		{ "EStatsType::Defense", (int64)EStatsType::Defense },
 		{ "EStatsType::Mana", (int64)EStatsType::Mana },
 		{ "EStatsType::Stamina", (int64)EStatsType::Stamina },
 	};
@@ -200,7 +196,7 @@ struct Z_Construct_UScriptStruct_FStatModifier_Statics
 	static const UECodeGen_Private::FStructParams StructParams;
 };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FStatModifier_Statics::NewProp_Stat_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FStatModifier_Statics::NewProp_Stat = { "Stat", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FStatModifier, Stat), Z_Construct_UEnum_UEAbilities_EStatsType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Stat_MetaData), NewProp_Stat_MetaData) }; // 1803528936
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FStatModifier_Statics::NewProp_Stat = { "Stat", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FStatModifier, Stat), Z_Construct_UEnum_UEAbilities_EStatsType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Stat_MetaData), NewProp_Stat_MetaData) }; // 317548579
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FStatModifier_Statics::NewProp_Operation_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FStatModifier_Statics::NewProp_Operation = { "Operation", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FStatModifier, Operation), Z_Construct_UEnum_UEAbilities_EModifierOp, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Operation_MetaData), NewProp_Operation_MetaData) }; // 3532330938
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FStatModifier_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FStatModifier, Value), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) };
@@ -253,14 +249,14 @@ UScriptStruct* Z_Construct_UScriptStruct_FStatModifier()
 struct Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Stats_StatData_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
-		{ EStatsType_StaticEnum, TEXT("EStatsType"), &Z_Registration_Info_UEnum_EStatsType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1803528936U) },
+		{ EStatsType_StaticEnum, TEXT("EStatsType"), &Z_Registration_Info_UEnum_EStatsType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 317548579U) },
 		{ EModifierOp_StaticEnum, TEXT("EModifierOp"), &Z_Registration_Info_UEnum_EModifierOp, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3532330938U) },
 	};
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FStatModifier::StaticStruct, Z_Construct_UScriptStruct_FStatModifier_Statics::NewStructOps, TEXT("StatModifier"), &Z_Registration_Info_UScriptStruct_StatModifier, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FStatModifier), 1973148372U) },
+		{ FStatModifier::StaticStruct, Z_Construct_UScriptStruct_FStatModifier_Statics::NewStructOps, TEXT("StatModifier"), &Z_Registration_Info_UScriptStruct_StatModifier, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FStatModifier), 1165197012U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Stats_StatData_h_870889478(TEXT("/Script/UEAbilities"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Stats_StatData_h_3766088405(TEXT("/Script/UEAbilities"),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Stats_StatData_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Stats_StatData_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Stats_StatData_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Stats_StatData_h_Statics::EnumInfo));

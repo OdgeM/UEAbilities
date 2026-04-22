@@ -7,14 +7,14 @@
 #include "Stats/StatData.h"
 #include "StatComponent.generated.h"
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FStatData
 {
 	GENERATED_BODY()
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Current;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Max;
 };
 
@@ -26,17 +26,23 @@ class UEABILITIES_API UStatComponent : public UActorComponent
 
 public:	
 	virtual void BeginPlay() override;
-	float GetStat(EStatsType Stat) const;
+	UFUNCTION(BlueprintCallable)
+	bool GetStat(EStatsType Stat, FStatData& OutStat) const;
+
+	UFUNCTION(BlueprintCallable)
+	float GetStatMax(EStatsType Stat) const;
 	void ApplyModifier(const FStatModifier& Modifier, AActor* Instigator);
 	bool HasStat(EStatsType Stat) const;
 	bool CanAfford(const FStatModifier& Mod) const;
 	bool CanAffordModifiers(const TArray<FStatModifier>& Mods) const;
-	void AddActiveTimer(FTimerHandle Handle);
-	
+
+
+
 
 protected:
 	UPROPERTY(EditAnywhere)
 	TMap<EStatsType, FStatData> BaseStats;
+	UPROPERTY(EditAnywhere)
 	TMap<EStatsType, FStatData> CurrentStats;
 
 	UPROPERTY()

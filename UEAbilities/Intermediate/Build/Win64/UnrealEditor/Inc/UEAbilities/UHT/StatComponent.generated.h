@@ -9,6 +9,8 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+enum class EStatsType : uint8;
+struct FStatData;
 #ifdef UEABILITIES_StatComponent_generated_h
 #error "StatComponent.generated.h already included, missing '#pragma once' in StatComponent.h"
 #endif
@@ -20,6 +22,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 
 template<> UEABILITIES_API UScriptStruct* StaticStruct<struct FStatData>();
+
+#define FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetStatMax); \
+	DECLARE_FUNCTION(execGetStat);
+
 
 #define FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_25_INCLASS_NO_PURE_DECLS \
 private: \
@@ -48,6 +55,7 @@ public: \
 #define FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_25_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_25_INCLASS_NO_PURE_DECLS \
 	FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_StatComponent_h_25_ENHANCED_CONSTRUCTORS \
 private: \

@@ -54,8 +54,7 @@ void TargetingHelpers::GetAllTargetables(UWorld* World, TArray<AActor*>& OutActo
 
     TArray<AActor*> AllActors;
     UGameplayStatics::GetAllActorsOfClass(World, AActor::StaticClass(), AllActors);
-    if (GEngine)
-        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("GETTING ACTORS"));
+
     for (AActor* a : AllActors) {
         if (a->GetClass()->ImplementsInterface(UTargetable::StaticClass())) {
             OutActors.Add(a);
@@ -70,4 +69,10 @@ void TargetingHelpers::SetTargeted(AActor* Actor, bool bEnabled) {
     ETeam TargetTeam = ITargetable::Execute_GetTeam(Actor);
 
     SetHighlight(Actor, true, ((int32)TargetTeam)*2 + Selected);
+}
+
+bool TargetingHelpers::IsTargetable(AActor* Actor) {
+    if (!Actor) return false;
+    return Actor->GetClass()->ImplementsInterface(UTargetable::StaticClass());
+
 }

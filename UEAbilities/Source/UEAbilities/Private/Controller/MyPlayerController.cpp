@@ -76,9 +76,8 @@ void AMyPlayerController::OnConfirm() {
 		}
 		TargetData.TargetLocation = Hit.ImpactPoint;
 
-		
-		
-		AbilityComp->ActivateAbility(CurrentAbilityIndex, TargetData);
+
+		AbilityComp->ActivateAbility(CurrentAbilityIndex, TargetData, this);
 	}
 
 	bIsTargeting = false;
@@ -87,11 +86,11 @@ void AMyPlayerController::OnConfirm() {
 
 
 void AMyPlayerController::StartTargeting(int32 AbilityIndex) {
-	if (GEngine)
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::FromInt(AbilityIndex));
 
-	CurrentAbilityIndex = AbilityIndex;
-	bIsTargeting = true;
+
+
+
+	
 
 	APawn* CurrentPawn = GetPawn();
 	if (!CurrentPawn) return;
@@ -99,13 +98,20 @@ void AMyPlayerController::StartTargeting(int32 AbilityIndex) {
 	UAbilityComponent* Comp = CurrentPawn->FindComponentByClass<UAbilityComponent>();
 	if (!Comp) return;
 
+	if (!Comp->CanSelect(AbilityIndex)) return;
 
-	if (!Comp->Abilities.IsValidIndex(CurrentAbilityIndex)) return;
+	if (AbilityIndex != CurrentAbilityIndex) {
+		Comp->StopTargeting(this, CurrentAbilityIndex);
+		Comp->StartTargeting(this, AbilityIndex);
 
-	UAbility* Ability = Comp->Abilities[CurrentAbilityIndex];
-	if (!Ability || !Ability->TargetingStrategy) return;
-
-	Ability->StartTargeting(CurrentPawn);
+		CurrentAbilityIndex = AbilityIndex;
+		bIsTargeting = true;
+	}
+	else {
+		bIsTargeting = false;
+		CurrentAbilityIndex = INDEX_NONE;
+		Comp->StopTargeting(this, AbilityIndex);
+	}
 }
 
 
@@ -136,31 +142,13 @@ void AMyPlayerController::Tick(float DeltaTime) {
 	UAbilityComponent* Comp = CurrentPawn->FindComponentByClass<UAbilityComponent>();
 	if (!Comp) return;
 
-	if (!Comp->Abilities.IsValidIndex(CurrentAbilityIndex)) return;
-
-	UAbility* Ability = Comp->Abilities[CurrentAbilityIndex];
-	if (!Ability || !Ability->TargetingStrategy) return;
 
 	FHitResult Hit;
 
 	if (GetHitResultUnderCursor(ECC_Visibility, false, Hit))
 	{
-		if (Hit.Location != LastHit.Location||true) {
-			FAbilityTargetData TargetData;
-			if (Hit.GetActor()) {
+		Comp->UpdatePreview(this, CurrentAbilityIndex, Hit);
+		LastHit = Hit;
 
-				if (Hit.GetActor()->GetClass()->ImplementsInterface(UTargetable::StaticClass())) {
-					TargetData.HoverActor = Hit.GetActor();
-				}
-
-			}
-			TargetData.TargetLocation = Hit.ImpactPoint;
-			TargetData.TargetActor.Empty();
-
-			Ability->UpdatePreview(this, Hit, TargetData, Comp);
-			LastHit = Hit;
-			LastTarget = TargetData;
-		}
-		
 	}
 }

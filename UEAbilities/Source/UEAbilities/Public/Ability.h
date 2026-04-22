@@ -25,7 +25,7 @@ class UEABILITIES_API UAbility : public UObject
 
 public:
     UAbility();
-    virtual void Activate(AActor* Instigator, const FAbilityTargetData& TargetData);
+    virtual void Activate(AActor* Instigator,  FAbilityTargetData& TargetData);
     virtual bool CanActivate(AActor* Instigator) const;
 
     bool IsValidTarget(AActor* Instigator, AActor* Target) const; 
@@ -41,6 +41,7 @@ public:
     );
 
      void StartTargeting(AActor* Instigator);
+     void StopTargeting(APlayerController* PC);
 
 protected:
     
