@@ -25,7 +25,12 @@ void AMyPlayerController::BeginPlay()
 	}
 
 
+
 	bShowMouseCursor = true;
+
+	APawn* CurrentPawn = GetPawn();
+	if (!CurrentPawn) return;
+	MoveTarget = CurrentPawn->GetActorLocation();
 }
 
 void AMyPlayerController::SetupInputComponent()
@@ -44,8 +49,8 @@ void AMyPlayerController::SetupInputComponent()
 
 		EIC->BindAction(IA_Confirm, ETriggerEvent::Started, this, &AMyPlayerController::OnConfirm);
 
-		EIC->BindAction(IA_Move, ETriggerEvent::Triggered, this, &AMyPlayerController::Move);
-		MoveActionBinding = &EIC->BindActionValue(IA_Move);
+		//EIC->BindAction(IA_Move, ETriggerEvent::Triggered, this, &AMyPlayerController::Move);
+		//MoveActionBinding = &EIC->BindActionValue(IA_Move);
 	}
 }
 
@@ -56,7 +61,7 @@ void AMyPlayerController::OnAbility4() { StartTargeting(3); }
 
 void AMyPlayerController::OnConfirm() {
 
-	if (!bIsTargeting || CurrentAbilityIndex == INDEX_NONE) return;
+	
 
 	APawn* CurrentPawn = GetPawn();
 	if (!CurrentPawn) return;
@@ -68,6 +73,14 @@ void AMyPlayerController::OnConfirm() {
 
 	if (GetHitResultUnderCursor(ECC_Visibility, false, Hit))
 	{
+
+		if (!bIsTargeting || CurrentAbilityIndex == INDEX_NONE) {
+			MoveTarget = Hit.ImpactPoint;
+			MoveTarget.Z = 0;
+
+			return;
+		}
+
 		AActor* HitActor = Hit.GetActor();
 
 		FAbilityTargetData TargetData;
@@ -124,7 +137,7 @@ void AMyPlayerController::Move() {
 	FVector Right = CurrentPawn->GetActorRightVector();
 	FVector Forward = CurrentPawn->GetActorForwardVector();
 
-
+	
 
 	CurrentPawn->AddMovementInput(Forward, InputValue.X);
 	CurrentPawn->AddMovementInput(Right, InputValue.Y);
@@ -134,7 +147,7 @@ void AMyPlayerController::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
 
 
-	if (!bIsTargeting) return;
+
 
 	APawn* CurrentPawn = GetPawn();
 	if (!CurrentPawn) return;
@@ -147,8 +160,27 @@ void AMyPlayerController::Tick(float DeltaTime) {
 
 	if (GetHitResultUnderCursor(ECC_Visibility, false, Hit))
 	{
-		Comp->UpdatePreview(this, CurrentAbilityIndex, Hit);
-		LastHit = Hit;
+		if (bIsTargeting) {
+			Comp->UpdatePreview(this, CurrentAbilityIndex, Hit);
+			LastHit = Hit;
+		}
+		else {
+			FVector MoveDirection = (MoveTarget - CurrentPawn->GetActorLocation()).GetSafeNormal();
+			CurrentPawn->AddMovementInput(MoveDirection, 1.0f);
+		}
+		
+		if (Comp->CanRotate()) {
+			FVector Direction = Hit.ImpactPoint - CurrentPawn->GetActorLocation();
+			Direction.Z = 0;
 
+
+			FRotator Current = CurrentPawn->GetActorRotation();
+			FRotator Rotation = Direction.Rotation();
+
+			FRotator Smooth = FMath::RInterpTo(Current, Rotation, DeltaTime, 10.f);
+
+			CurrentPawn->SetActorRotation(Smooth);
+		}
+		
 	}
 }

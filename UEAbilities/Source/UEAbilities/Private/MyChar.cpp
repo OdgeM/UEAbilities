@@ -13,9 +13,12 @@ AMyChar::AMyChar()
 
 	// Create Ability Component
 	AbilityComponent = CreateDefaultSubobject<UAbilityComponent>(TEXT("AbilityComponent"));
+	AbilityComponent->RegisterComponent();
 
 	// Create Stat Component
 	StatComponent = CreateDefaultSubobject<UStatComponent>(TEXT("StatComponent"));
+	StatComponent->RegisterComponent();
+	StatComponent->SetComponentTickEnabled(true);
 
 }
 

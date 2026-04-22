@@ -26,7 +26,15 @@ class UEABILITIES_API UAbility : public UObject
 public:
     UAbility();
     virtual void Activate(AActor* Instigator,  FAbilityTargetData& TargetData);
+    
+
+    UFUNCTION(BlueprintCallable)
+    virtual bool CanActivate(AActor* Instigator, float& CooldownOut) const;
+
     virtual bool CanActivate(AActor* Instigator) const;
+
+    
+
 
     bool IsValidTarget(AActor* Instigator, AActor* Target) const; 
 
@@ -43,17 +51,23 @@ public:
      void StartTargeting(AActor* Instigator);
      void StopTargeting(APlayerController* PC);
 
+     
+
 protected:
     
 
     UPROPERTY(EditAnywhere, Instanced)
     TArray<UAbilityEffect*> Effects;
 
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    FString Name = "String";
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
     float Cooldown = 1.0f;
     
-    UPROPERTY(EditAnywhere, Category="Cost")
+    UPROPERTY(EditAnywhere, Category = "Cost", BlueprintReadOnly)
     TArray<FStatModifier> Costs;
+    
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = "/Script/UEAbilities.ETeam"))
     int32 TargetableTeams;

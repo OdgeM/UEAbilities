@@ -153,6 +153,9 @@
     <ClCompile Include="..\..\Source\UEAbilities\Private\MyChar.cpp">
       <Filter>Source\UEAbilities\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UEAbilities\Private\PushEffect.cpp">
+      <Filter>Source\UEAbilities\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UEAbilities\Private\StatComponent.cpp">
       <Filter>Source\UEAbilities\Private</Filter>
     </ClCompile>
@@ -220,6 +223,9 @@
       <Filter>Source\UEAbilities\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UEAbilities\Public\MyChar.h">
+      <Filter>Source\UEAbilities\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UEAbilities\Public\PushEffect.h">
       <Filter>Source\UEAbilities\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UEAbilities\Public\StatComponent.h">

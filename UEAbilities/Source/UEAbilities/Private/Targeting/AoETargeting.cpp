@@ -9,13 +9,14 @@
 #include "Engine/OverlapResult.h"
 #include "DrawDebugHelpers.h"
 
-
+UAoETargeting::UAoETargeting() {
+    bCanRotate = true;
+}
 
 void UAoETargeting::GetTargets(
      UAbilityComponent* AbilityComponent,
      FAbilityTargetData& TargetData
 ) {
-    TArray<FOverlapResult> Results;
 
     for (const auto& A : TargetableActors) {
         if (A.IsValid()) {
@@ -25,6 +26,8 @@ void UAoETargeting::GetTargets(
             }
         }
     }
+    TargetData.SourceLocation = TargetData.TargetLocation;
+
 }
 
 void UAoETargeting::UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent) {

@@ -23,6 +23,7 @@ public:
 	{
 		if (TargetData.HoverActor)
 		{
+			TargetData.SourceLocation = TargetData.TargetLocation;
 			TargetData.TargetActor.Add(TargetData.HoverActor);
 		}
 	};

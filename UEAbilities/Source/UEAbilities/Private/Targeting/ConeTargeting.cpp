@@ -9,6 +9,10 @@
 #include "Engine/HitResult.h"
 #include "Engine/OverlapResult.h"
 
+UConeTargeting::UConeTargeting() {
+    bCanRotate = true;
+}
+
 void UConeTargeting::GetTargets(
     UAbilityComponent* AbilityComp,
     FAbilityTargetData& TargetData
@@ -21,6 +25,8 @@ void UConeTargeting::GetTargets(
 
     FVector Origin = Instigator->GetActorLocation();
     FVector Forward = Instigator->GetActorForwardVector();
+
+    TargetData.SourceLocation = Origin;
 
     float CosAngle = FMath::Cos(FMath::DegreesToRadians(AngleDegrees));
 
@@ -59,6 +65,8 @@ void UConeTargeting::UpdatePreview(APlayerController* PC, const FHitResult& Hit,
 
     FVector Origin = Pawn->GetActorLocation();
     FVector Forward = Pawn->GetActorForwardVector();
+
+
 
     DrawDebugCone(
         PC->GetWorld(),

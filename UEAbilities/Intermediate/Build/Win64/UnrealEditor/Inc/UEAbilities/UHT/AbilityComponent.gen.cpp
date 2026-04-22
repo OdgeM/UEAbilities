@@ -42,7 +42,7 @@ struct Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::NewProp_Index = { "Index", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilityComponent_eventActivateAbility_Parms, Index), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::NewProp_TargetData = { "TargetData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilityComponent_eventActivateAbility_Parms, TargetData), Z_Construct_UScriptStruct_FAbilityTargetData, METADATA_PARAMS(0, nullptr) }; // 149681228
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::NewProp_TargetData = { "TargetData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilityComponent_eventActivateAbility_Parms, TargetData), Z_Construct_UScriptStruct_FAbilityTargetData, METADATA_PARAMS(0, nullptr) }; // 404425557
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::NewProp_PC = { "PC", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilityComponent_eventActivateAbility_Parms, PC), Z_Construct_UClass_APlayerController_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilityComponent_ActivateAbility_Statics::NewProp_Index,
@@ -140,10 +140,15 @@ struct Z_Construct_UClass_UAbilityComponent_Statics
 		{ "ModuleRelativePath", "Public/AbilityComponent.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Abilities_MetaData[] = {
+		{ "Category", "AbilityComponent" },
 		{ "ModuleRelativePath", "Public/AbilityComponent.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AbilityClasses_MetaData[] = {
 		{ "Category", "Abilities" },
+		{ "ModuleRelativePath", "Public/AbilityComponent.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentIndex_MetaData[] = {
+		{ "Category", "AbilityComponent" },
 		{ "ModuleRelativePath", "Public/AbilityComponent.h" },
 	};
 #endif // WITH_METADATA
@@ -151,10 +156,11 @@ struct Z_Construct_UClass_UAbilityComponent_Statics
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Abilities;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_AbilityClasses_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_AbilityClasses;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_CurrentIndex;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UAbilityComponent_ActivateAbility, "ActivateAbility" }, // 2242352673
+		{ &Z_Construct_UFunction_UAbilityComponent_ActivateAbility, "ActivateAbility" }, // 2730424605
 		{ &Z_Construct_UFunction_UAbilityComponent_AddAbility, "AddAbility" }, // 369537780
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -164,14 +170,16 @@ struct Z_Construct_UClass_UAbilityComponent_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Abilities_Inner = { "Abilities", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UAbility_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Abilities = { "Abilities", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, Abilities), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Abilities_MetaData), NewProp_Abilities_MetaData) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Abilities = { "Abilities", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, Abilities), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Abilities_MetaData), NewProp_Abilities_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_AbilityClasses_Inner = { "AbilityClasses", nullptr, (EPropertyFlags)0x0004000000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UClass, Z_Construct_UClass_UAbility_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_AbilityClasses = { "AbilityClasses", nullptr, (EPropertyFlags)0x0014000000000015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, AbilityClasses), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AbilityClasses_MetaData), NewProp_AbilityClasses_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_CurrentIndex = { "CurrentIndex", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, CurrentIndex), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentIndex_MetaData), NewProp_CurrentIndex_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAbilityComponent_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Abilities_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Abilities,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityComponent_Statics::NewProp_AbilityClasses_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityComponent_Statics::NewProp_AbilityClasses,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityComponent_Statics::NewProp_CurrentIndex,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UAbilityComponent_Statics::DependentSingletons[])() = {
@@ -214,10 +222,10 @@ UAbilityComponent::~UAbilityComponent() {}
 struct Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilityComponent, UAbilityComponent::StaticClass, TEXT("UAbilityComponent"), &Z_Registration_Info_UClass_UAbilityComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityComponent), 1714004868U) },
+		{ Z_Construct_UClass_UAbilityComponent, UAbilityComponent::StaticClass, TEXT("UAbilityComponent"), &Z_Registration_Info_UClass_UAbilityComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityComponent), 3637158697U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityComponent_h_255101716(TEXT("/Script/UEAbilities"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityComponent_h_4086145852(TEXT("/Script/UEAbilities"),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_AbilityComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

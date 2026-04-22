@@ -32,8 +32,11 @@ public:
 
     void StartTargeting(AActor* Instigator, UAbility* Ability);
 
+    bool bCanRotate = false;
+
 protected:
     TArray<TWeakObjectPtr<AActor>> HighlightedActors;
     TArray<TWeakObjectPtr<AActor>> TargetableActors;
     TArray<AActor*> TargetActors;
+
 };

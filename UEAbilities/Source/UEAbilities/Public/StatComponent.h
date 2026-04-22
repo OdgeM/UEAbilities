@@ -13,9 +13,9 @@ struct FStatData
 	GENERATED_BODY()
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float Current;
+	float Current = 0.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float Max;
+	float Max = 0.f;
 };
 
 
@@ -25,7 +25,10 @@ class UEABILITIES_API UStatComponent : public UActorComponent
 	GENERATED_BODY()
 
 public:	
+	UStatComponent();
+
 	virtual void BeginPlay() override;
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UFUNCTION(BlueprintCallable)
 	bool GetStat(EStatsType Stat, FStatData& OutStat) const;
 
@@ -39,6 +42,7 @@ public:
 
 
 
+
 protected:
 	UPROPERTY(EditAnywhere)
 	TMap<EStatsType, FStatData> BaseStats;
@@ -48,4 +52,8 @@ protected:
 	UPROPERTY()
 	TArray<FTimerHandle> ActiveEffectTimers;
 		
+	UPROPERTY(EditAnywhere)
+	TMap<EStatsType, float> RegenRate;
+
+	TMap<EStatsType, int> TickingStats;
 };

@@ -44,4 +44,7 @@ struct FAbilityTargetData
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector TargetLocation = FVector::ZeroVector;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector SourceLocation = FVector::ZeroVector;
 };

@@ -12,6 +12,7 @@ class UEABILITIES_API ULineTargeting : public UAbilityTargeting
 	GENERATED_BODY()
 	
 public:
+	ULineTargeting();
 	UPROPERTY(EditAnywhere)
 	float Range = 1000.f;
 

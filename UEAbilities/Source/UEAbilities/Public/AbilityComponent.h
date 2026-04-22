@@ -31,12 +31,17 @@ public:
 	void UpdatePreview(APlayerController* PC, int32 Index, const FHitResult& Hit);
 	bool CanSelect(int32 Index);
 	
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 	TArray<UAbility*> Abilities;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
 	TArray<TSubclassOf<UAbility>> AbilityClasses;
-private:
+
+	UPROPERTY(BlueprintReadOnly)
 	int32 CurrentIndex = INDEX_NONE;
+
+	bool CanRotate();
+private:
+	
 };
 	

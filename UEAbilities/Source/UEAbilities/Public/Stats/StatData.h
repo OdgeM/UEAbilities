@@ -27,21 +27,36 @@ struct FStatModifier
 {
     GENERATED_BODY()
 
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
     EStatsType Stat;
 
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
     EModifierOp Operation;
 
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
     float Value = 0.f;
 
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
     float Duration = 0.f; // 0 = instant
 
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
     bool bOverTime = false;
 
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
     bool bTemporary = false;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly)
+    float MaxCHange = 0.f;
+
+    FStatModifier() {
+        Stat = EStatsType::Health;
+        Operation = EModifierOp::Add;
+    }
+
+    FStatModifier(EStatsType S, float V) {
+        Stat = S;
+        Value = V;
+
+        Operation = EModifierOp::Add;
+    }
 };

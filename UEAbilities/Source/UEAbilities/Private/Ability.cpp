@@ -85,6 +85,16 @@ bool UAbility::CanActivate(AActor* Instigator) const{
 	return ((CurrentTime - LastUsedTime) >= Cooldown)&&(Stats->CanAffordModifiers(Costs));
 }
 
+bool UAbility::CanActivate(AActor* Instigator, float& CooldownOut) const {
+
+
+    float CurrentTime = Instigator->GetWorld()->GetTimeSeconds();
+    CooldownOut = Cooldown - (CurrentTime - LastUsedTime);
+
+    return CanActivate(Instigator);
+}
+
+
 
 bool UAbility::IsValidTarget(AActor* Instigator, AActor* Target) const
 {

@@ -14,6 +14,8 @@ class UEABILITIES_API UAoETargeting : public UAbilityTargeting
 {
 	GENERATED_BODY()
 public:
+    UAoETargeting();
+
     UPROPERTY(EditAnywhere)
     float Radius = 300.f;
 
@@ -22,5 +24,8 @@ public:
         FAbilityTargetData& TargetData
     ) override;
 
+
     virtual void UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent) override;
+
+
 };

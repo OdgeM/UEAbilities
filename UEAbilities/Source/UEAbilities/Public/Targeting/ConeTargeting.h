@@ -15,6 +15,8 @@ class UEABILITIES_API UConeTargeting : public UAbilityTargeting
 	GENERATED_BODY()
 
 public:
+    UConeTargeting();
+
     UPROPERTY(EditAnywhere)
     float Range = 500.f;
 
@@ -26,5 +28,10 @@ public:
         FAbilityTargetData& TargetData
     ) override;
 
+
+
     virtual void UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent) override;
+
+
+
 };

@@ -24,6 +24,7 @@ public:
 protected:
 	FHitResult LastHit;
 
+	FVector MoveTarget;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	UInputMappingContext* DefaultMappingContext;

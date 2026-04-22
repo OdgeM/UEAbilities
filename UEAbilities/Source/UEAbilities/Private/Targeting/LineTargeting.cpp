@@ -9,6 +9,9 @@
 #include "Targeting/AbilityTargeting.h"
 #include "Engine/HitResult.h"
 
+ULineTargeting::ULineTargeting() {
+    bCanRotate = true;
+}
 
 void ULineTargeting::GetTargets(
     UAbilityComponent* AbilityComp,
@@ -23,6 +26,8 @@ void ULineTargeting::GetTargets(
 
     FVector Start = Owner->GetActorLocation();
     FVector End = Start + Owner->GetActorForwardVector() * Range;
+
+    TargetData.SourceLocation = Start;
 
     FHitResult Hit;
 

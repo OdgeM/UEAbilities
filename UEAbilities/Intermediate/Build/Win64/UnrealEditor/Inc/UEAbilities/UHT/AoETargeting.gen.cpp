@@ -85,7 +85,6 @@ template<> UEABILITIES_API UClass* StaticClass<UAoETargeting>()
 {
 	return UAoETargeting::StaticClass();
 }
-UAoETargeting::UAoETargeting(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(UAoETargeting);
 UAoETargeting::~UAoETargeting() {}
 // End Class UAoETargeting

@@ -4,6 +4,7 @@
 #include "AbilityComponent.h"
 #include "Ability.h"
 #include "Engine/HitResult.h"
+#include "Targeting/AbilityTargeting.h"
 #include "GameFramework/Actor.h"
 #include "Targeting/TargetHelpers.h"
 #include "GameFramework/PlayerController.h"
@@ -44,7 +45,7 @@ void UAbilityComponent::ActivateAbility(int32 Index,  FAbilityTargetData& Target
 
 	UAbility* Ability = Abilities[Index];
 
-
+	CurrentIndex = INDEX_NONE;
 
 	if (Ability && Ability->CanActivate(GetOwner())) {
 
@@ -56,7 +57,7 @@ void UAbilityComponent::ActivateAbility(int32 Index,  FAbilityTargetData& Target
 void UAbilityComponent::StopTargeting(APlayerController* PC, int32 Index) {
 	if (!Abilities.IsValidIndex(Index)) return;
 	UAbility* Ability = Abilities[Index];
-
+	CurrentIndex = INDEX_NONE;
 	if (!Ability) return;
 	Ability->StopTargeting(PC);
 }
@@ -69,6 +70,19 @@ bool UAbilityComponent::CanSelect(int32 Index) {
 
 	return Ability->CanActivate(GetOwner());
 
+}
+
+
+bool UAbilityComponent::CanRotate() {
+	if (CurrentIndex == INDEX_NONE) return true;
+	if (!Abilities.IsValidIndex(CurrentIndex)) return true;
+	UAbility* Ability = Abilities[CurrentIndex];
+
+	if (!Ability) return true;
+
+	if (!Ability->TargetingStrategy) return false;
+
+	return Ability->TargetingStrategy->bCanRotate;
 }
 
 void UAbilityComponent::StartTargeting(APlayerController* PC, int32 Index) {

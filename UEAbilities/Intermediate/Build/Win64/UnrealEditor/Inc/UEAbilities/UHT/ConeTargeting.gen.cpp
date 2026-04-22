@@ -92,7 +92,6 @@ template<> UEABILITIES_API UClass* StaticClass<UConeTargeting>()
 {
 	return UConeTargeting::StaticClass();
 }
-UConeTargeting::UConeTargeting(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(UConeTargeting);
 UConeTargeting::~UConeTargeting() {}
 // End Class UConeTargeting

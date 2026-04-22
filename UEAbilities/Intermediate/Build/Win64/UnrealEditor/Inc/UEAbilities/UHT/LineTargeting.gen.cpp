@@ -82,7 +82,6 @@ template<> UEABILITIES_API UClass* StaticClass<ULineTargeting>()
 {
 	return ULineTargeting::StaticClass();
 }
-ULineTargeting::ULineTargeting(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(ULineTargeting);
 ULineTargeting::~ULineTargeting() {}
 // End Class ULineTargeting

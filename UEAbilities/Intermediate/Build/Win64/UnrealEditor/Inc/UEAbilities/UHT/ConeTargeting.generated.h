@@ -24,8 +24,6 @@ public: \
 
 
 #define FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Targeting_ConeTargeting_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UConeTargeting(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UConeTargeting(UConeTargeting&&); \
@@ -33,7 +31,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UConeTargeting); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UConeTargeting); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UConeTargeting) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UConeTargeting) \
 	NO_API virtual ~UConeTargeting();
 
 

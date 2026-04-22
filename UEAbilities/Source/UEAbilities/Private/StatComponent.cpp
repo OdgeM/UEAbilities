@@ -3,10 +3,24 @@
 
 #include "StatComponent.h"
 
+UStatComponent::UStatComponent() {
+    if (GEngine)
+        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("HERE"));  
+    PrimaryComponentTick.bCanEverTick = true;
+
+    
+}
+
 void UStatComponent::BeginPlay() {
     Super::BeginPlay();
 
+    
+    
     CurrentStats = BaseStats;
+
+    for (auto& Stat : RegenRate) {
+        TickingStats.Add(Stat.Key, 0);
+    }
 }
 
 bool UStatComponent::GetStat(EStatsType Stat, FStatData& OutStat) const
@@ -44,6 +58,7 @@ void UStatComponent::ApplyModifier(const FStatModifier& Mod, AActor* Instigator)
     }
 
     float& Value = CurrentStats[Mod.Stat].Current;
+    float& Max = CurrentStats[Mod.Stat].Max;
 
     if (Mod.bOverTime && Mod.Duration > 0.f)
     {
@@ -68,6 +83,10 @@ void UStatComponent::ApplyModifier(const FStatModifier& Mod, AActor* Instigator)
         // Smart Pointer to Timer Handle
         TSharedRef<FTimerHandle> HandleRef = MakeShared<FTimerHandle>();
 
+        
+        int& ticking = TickingStats.FindOrAdd(Mod.Stat);
+        ticking++;
+
         // DoT Path
         GetWorld()->GetTimerManager().SetTimer(
             *HandleRef,
@@ -85,6 +104,7 @@ void UStatComponent::ApplyModifier(const FStatModifier& Mod, AActor* Instigator)
                 
                 if (Elapsed >= Mod.Duration)
                 {
+                    TickingStats[Mod.Stat]--;
                     GetWorld()->GetTimerManager().ClearTimer(*HandleRef);
                 }
             },
@@ -98,17 +118,20 @@ void UStatComponent::ApplyModifier(const FStatModifier& Mod, AActor* Instigator)
 
     // Instant Path
     float Original = Value;
-
+    float OriginalMax = Max;
     switch (Mod.Operation)
     {
     case EModifierOp::Add:
         Value += Mod.Value;
+        Max += Mod.MaxCHange;
         break;
     case EModifierOp::Multiply:
         Value *= Mod.Value;
+        Max *= Mod.MaxCHange;
         break;
     case EModifierOp::Override:
         Value = Mod.Value;
+        Max = Mod.MaxCHange;
         break;
     }
 
@@ -121,11 +144,12 @@ void UStatComponent::ApplyModifier(const FStatModifier& Mod, AActor* Instigator)
 
         GetWorld()->GetTimerManager().SetTimer(
             Timer,
-            [this, Mod, Original]()
+            [this, Mod, Original, OriginalMax]()
             {
                 if (CurrentStats.Contains(Mod.Stat))
                 {
                     CurrentStats[Mod.Stat].Current = Original;
+                    CurrentStats[Mod.Stat].Max = OriginalMax;
                 }
             },
             Mod.Duration,
@@ -158,4 +182,17 @@ bool UStatComponent::CanAffordModifiers(const TArray<FStatModifier>& Mods) const
         }
     }
     return true;
+}
+
+void UStatComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+{
+    Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+
+    for (auto& Stat : RegenRate) {
+        
+        if (TickingStats.FindOrAdd(Stat.Key) == 0 && Stat.Value != 0 && CurrentStats[Stat.Key].Current != CurrentStats[Stat.Key].Max) {
+            FStatModifier Mod = FStatModifier(Stat.Key, Stat.Value*DeltaTime);
+            ApplyModifier(Mod, GetOwner());
+        }
+    }
 }
