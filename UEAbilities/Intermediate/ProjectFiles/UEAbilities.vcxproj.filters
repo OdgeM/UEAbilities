@@ -171,6 +171,9 @@
     <Filter Include="Source\UEAbilities\Private\Effects">
       <UniqueIdentifier>{67C5B318-9E39-3F62-9322-AA6667CB2C78}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\UEAbilities\Private\Effects\DashEffect.cpp">
+      <Filter>Source\UEAbilities\Private\Effects</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UEAbilities\Private\Effects\StatEffect.cpp">
       <Filter>Source\UEAbilities\Private\Effects</Filter>
     </ClCompile>
@@ -246,6 +249,9 @@
     <Filter Include="Source\UEAbilities\Public\Effects">
       <UniqueIdentifier>{4FBEC703-6A12-3581-85FB-C2B473606458}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\UEAbilities\Public\Effects\DashEffect.h">
+      <Filter>Source\UEAbilities\Public\Effects</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UEAbilities\Public\Effects\StatEffect.h">
       <Filter>Source\UEAbilities\Public\Effects</Filter>
     </ClCompile>

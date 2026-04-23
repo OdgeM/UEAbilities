@@ -23,6 +23,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Team")
 	ETeam Team = ETeam::Player;
 	virtual ETeam GetTeam_Implementation() const override;
+	virtual void SetTargeted_Implementation(bool Targeted) override;
+
+	UPROPERTY(BlueprintReadOnly)
+	bool bIsTargeted = false;
 
 protected:
 

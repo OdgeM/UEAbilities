@@ -48,6 +48,9 @@ void TargetingHelpers::ClearHighlight(AActor* Actor)
     {
         Comp->SetRenderCustomDepth(false);
     }
+
+    if (!Actor->Implements<UTargetable>()) return;
+    ITargetable::Execute_SetTargeted(Actor, false);
 }
 
 void TargetingHelpers::GetAllTargetables(UWorld* World, TArray<AActor*>& OutActors) {
@@ -69,6 +72,9 @@ void TargetingHelpers::SetTargeted(AActor* Actor, bool bEnabled) {
     ETeam TargetTeam = ITargetable::Execute_GetTeam(Actor);
 
     SetHighlight(Actor, true, ((int32)TargetTeam)*2 + Selected);
+
+    if (!Actor->Implements<UTargetable>()) return;
+    ITargetable::Execute_SetTargeted(Actor, true);
 }
 
 bool TargetingHelpers::IsTargetable(AActor* Actor) {

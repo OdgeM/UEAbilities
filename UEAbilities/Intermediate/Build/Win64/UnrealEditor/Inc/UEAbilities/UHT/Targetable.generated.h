@@ -16,7 +16,9 @@ enum class ETeam : uint8;
 #define UEABILITIES_Targetable_generated_h
 
 #define FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Interfaces_Targetable_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void SetTargeted_Implementation(bool Target) {}; \
 	virtual ETeam GetTeam_Implementation() const { return (ETeam)0; }; \
+	DECLARE_FUNCTION(execSetTargeted); \
 	DECLARE_FUNCTION(execGetTeam);
 
 
@@ -59,6 +61,7 @@ public: \
 	typedef UTargetable UClassType; \
 	typedef ITargetable ThisClass; \
 	static ETeam Execute_GetTeam(const UObject* O); \
+	static void Execute_SetTargeted(UObject* O, bool Target); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 

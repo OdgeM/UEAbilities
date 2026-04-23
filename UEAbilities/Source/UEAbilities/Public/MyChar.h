@@ -26,6 +26,7 @@ public:
 
 	// Interface Implementation
 	virtual ETeam GetTeam_Implementation() const override;
+	virtual void SetTargeted_Implementation(bool Targeted)  override;
 
 protected:
 	UPROPERTY(VisibleAnywhere, Instanced, BlueprintReadOnly, Category = "Components")

@@ -29,7 +29,7 @@ public:
     
 
     UFUNCTION(BlueprintCallable)
-    virtual bool CanActivate(AActor* Instigator, float& CooldownOut) const;
+    virtual bool CanActivate(AActor* Instigator, float& CooldownOut, bool& CanAfford) const;
 
     virtual bool CanActivate(AActor* Instigator) const;
 

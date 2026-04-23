@@ -24,6 +24,7 @@ public:
 protected:
 	FHitResult LastHit;
 
+	bool bIsMoving = false;
 	FVector MoveTarget;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
@@ -66,4 +67,5 @@ private:
 	int32 CurrentAbilityIndex = INDEX_NONE;
 	bool bIsTargeting = false;
 	struct FEnhancedInputActionValueBinding* MoveActionBinding;
+	AActor* HoveredActor = nullptr;
 };

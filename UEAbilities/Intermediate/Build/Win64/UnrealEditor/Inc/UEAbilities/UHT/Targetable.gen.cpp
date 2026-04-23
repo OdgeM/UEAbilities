@@ -91,12 +91,82 @@ DEFINE_FUNCTION(ITargetable::execGetTeam)
 }
 // End Interface UTargetable Function GetTeam
 
+// Begin Interface UTargetable Function SetTargeted
+struct Targetable_eventSetTargeted_Parms
+{
+	bool Target;
+};
+void ITargetable::SetTargeted(bool Target)
+{
+	check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetTargeted instead.");
+}
+static FName NAME_UTargetable_SetTargeted = FName(TEXT("SetTargeted"));
+void ITargetable::Execute_SetTargeted(UObject* O, bool Target)
+{
+	check(O != NULL);
+	check(O->GetClass()->ImplementsInterface(UTargetable::StaticClass()));
+	Targetable_eventSetTargeted_Parms Parms;
+	UFunction* const Func = O->FindFunction(NAME_UTargetable_SetTargeted);
+	if (Func)
+	{
+		Parms.Target=Target;
+		O->ProcessEvent(Func, &Parms);
+	}
+	else if (auto I = (ITargetable*)(O->GetNativeInterfaceAddress(UTargetable::StaticClass())))
+	{
+		I->SetTargeted_Implementation(Target);
+	}
+}
+struct Z_Construct_UFunction_UTargetable_SetTargeted_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Targeting" },
+		{ "ModuleRelativePath", "Public/Interfaces/Targetable.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_Target_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_Target;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_UTargetable_SetTargeted_Statics::NewProp_Target_SetBit(void* Obj)
+{
+	((Targetable_eventSetTargeted_Parms*)Obj)->Target = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UTargetable_SetTargeted_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Targetable_eventSetTargeted_Parms), &Z_Construct_UFunction_UTargetable_SetTargeted_Statics::NewProp_Target_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UTargetable_SetTargeted_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UTargetable_SetTargeted_Statics::NewProp_Target,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UTargetable_SetTargeted_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UTargetable_SetTargeted_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTargetable, nullptr, "SetTargeted", nullptr, nullptr, Z_Construct_UFunction_UTargetable_SetTargeted_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UTargetable_SetTargeted_Statics::PropPointers), sizeof(Targetable_eventSetTargeted_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UTargetable_SetTargeted_Statics::Function_MetaDataParams), Z_Construct_UFunction_UTargetable_SetTargeted_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Targetable_eventSetTargeted_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UTargetable_SetTargeted()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UTargetable_SetTargeted_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ITargetable::execSetTargeted)
+{
+	P_GET_UBOOL(Z_Param_Target);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetTargeted_Implementation(Z_Param_Target);
+	P_NATIVE_END;
+}
+// End Interface UTargetable Function SetTargeted
+
 // Begin Interface UTargetable
 void UTargetable::StaticRegisterNativesUTargetable()
 {
 	UClass* Class = UTargetable::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "GetTeam", &ITargetable::execGetTeam },
+		{ "SetTargeted", &ITargetable::execSetTargeted },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -117,6 +187,7 @@ struct Z_Construct_UClass_UTargetable_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UTargetable_GetTeam, "GetTeam" }, // 2586671749
+		{ &Z_Construct_UFunction_UTargetable_SetTargeted, "SetTargeted" }, // 3450235477
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -165,10 +236,10 @@ UTargetable::~UTargetable() {}
 struct Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Interfaces_Targetable_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UTargetable, UTargetable::StaticClass, TEXT("UTargetable"), &Z_Registration_Info_UClass_UTargetable, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTargetable), 1452503530U) },
+		{ Z_Construct_UClass_UTargetable, UTargetable::StaticClass, TEXT("UTargetable"), &Z_Registration_Info_UClass_UTargetable, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTargetable), 4229720885U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Interfaces_Targetable_h_3236875658(TEXT("/Script/UEAbilities"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Interfaces_Targetable_h_16114949(TEXT("/Script/UEAbilities"),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Interfaces_Targetable_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Interfaces_Targetable_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

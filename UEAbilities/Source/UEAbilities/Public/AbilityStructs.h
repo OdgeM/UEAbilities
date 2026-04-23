@@ -8,28 +8,6 @@
 
 class AActor;
 
-UENUM(BlueprintType)
-enum class ETargetType : uint8 {
-	SingleTarget	UMETA(DisplayName = "Single Target"),
-	AreaEffect	UMETA(DisplayName = "Area of Effect")
-};
-
-
-USTRUCT(BlueprintType)
-struct FAbilityResources
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float ManaAmount = 0.f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float StaminaAmount = 0.f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float HealthAmount = 0.f;
-};
-
 
 USTRUCT(BlueprintType)
 struct FAbilityTargetData

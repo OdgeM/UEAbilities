@@ -25,4 +25,8 @@ class UEABILITIES_API ITargetable
 public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Targeting")
 	ETeam GetTeam() const;
+
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Targeting")
+	void SetTargeted(bool Target);
 };

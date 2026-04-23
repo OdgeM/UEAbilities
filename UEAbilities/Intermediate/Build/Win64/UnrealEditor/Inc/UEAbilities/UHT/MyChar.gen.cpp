@@ -81,7 +81,7 @@ UObject* (*const Z_Construct_UClass_AMyChar_Statics::DependentSingletons[])() = 
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyChar_Statics::DependentSingletons) < 16);
 const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AMyChar_Statics::InterfaceParams[] = {
-	{ Z_Construct_UClass_UTargetable_NoRegister, (int32)VTABLE_OFFSET(AMyChar, ITargetable), false },  // 1452503530
+	{ Z_Construct_UClass_UTargetable_NoRegister, (int32)VTABLE_OFFSET(AMyChar, ITargetable), false },  // 4229720885
 };
 const UECodeGen_Private::FClassParams Z_Construct_UClass_AMyChar_Statics::ClassParams = {
 	&AMyChar::StaticClass,
@@ -118,10 +118,10 @@ AMyChar::~AMyChar() {}
 struct Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_MyChar_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyChar, AMyChar::StaticClass, TEXT("AMyChar"), &Z_Registration_Info_UClass_AMyChar, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyChar), 1849347530U) },
+		{ Z_Construct_UClass_AMyChar, AMyChar::StaticClass, TEXT("AMyChar"), &Z_Registration_Info_UClass_AMyChar, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyChar), 3077956448U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_MyChar_h_4134793887(TEXT("/Script/UEAbilities"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_MyChar_h_3903945005(TEXT("/Script/UEAbilities"),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_MyChar_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_MyChar_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -81,6 +81,7 @@ struct Z_Construct_UFunction_UAbility_CanActivate_Statics
 	{
 		AActor* Instigator;
 		float CooldownOut;
+		bool CanAfford;
 		bool ReturnValue;
 	};
 #if WITH_METADATA
@@ -90,6 +91,8 @@ struct Z_Construct_UFunction_UAbility_CanActivate_Statics
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Instigator;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_CooldownOut;
+	static void NewProp_CanAfford_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_CanAfford;
 	static void NewProp_ReturnValue_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -97,6 +100,11 @@ struct Z_Construct_UFunction_UAbility_CanActivate_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UAbility_CanActivate_Statics::NewProp_Instigator = { "Instigator", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Ability_eventCanActivate_Parms, Instigator), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UAbility_CanActivate_Statics::NewProp_CooldownOut = { "CooldownOut", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Ability_eventCanActivate_Parms, CooldownOut), METADATA_PARAMS(0, nullptr) };
+void Z_Construct_UFunction_UAbility_CanActivate_Statics::NewProp_CanAfford_SetBit(void* Obj)
+{
+	((Ability_eventCanActivate_Parms*)Obj)->CanAfford = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UAbility_CanActivate_Statics::NewProp_CanAfford = { "CanAfford", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Ability_eventCanActivate_Parms), &Z_Construct_UFunction_UAbility_CanActivate_Statics::NewProp_CanAfford_SetBit, METADATA_PARAMS(0, nullptr) };
 void Z_Construct_UFunction_UAbility_CanActivate_Statics::NewProp_ReturnValue_SetBit(void* Obj)
 {
 	((Ability_eventCanActivate_Parms*)Obj)->ReturnValue = 1;
@@ -105,6 +113,7 @@ const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UAbility_CanA
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbility_CanActivate_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbility_CanActivate_Statics::NewProp_Instigator,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbility_CanActivate_Statics::NewProp_CooldownOut,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbility_CanActivate_Statics::NewProp_CanAfford,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbility_CanActivate_Statics::NewProp_ReturnValue,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbility_CanActivate_Statics::PropPointers) < 2048);
@@ -123,9 +132,10 @@ DEFINE_FUNCTION(UAbility::execCanActivate)
 {
 	P_GET_OBJECT(AActor,Z_Param_Instigator);
 	P_GET_PROPERTY_REF(FFloatProperty,Z_Param_Out_CooldownOut);
+	P_GET_UBOOL_REF(Z_Param_Out_CanAfford);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(bool*)Z_Param__Result=P_THIS->CanActivate(Z_Param_Instigator,Z_Param_Out_CooldownOut);
+	*(bool*)Z_Param__Result=P_THIS->CanActivate(Z_Param_Instigator,Z_Param_Out_CooldownOut,Z_Param_Out_CanAfford);
 	P_NATIVE_END;
 }
 // End Class UAbility Function CanActivate
@@ -198,7 +208,7 @@ struct Z_Construct_UClass_UAbility_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UAbility_CanActivate, "CanActivate" }, // 3221380071
+		{ &Z_Construct_UFunction_UAbility_CanActivate, "CanActivate" }, // 2778570498
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -268,10 +278,10 @@ struct Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbiliti
 		{ ETargetingMode_StaticEnum, TEXT("ETargetingMode"), &Z_Registration_Info_UEnum_ETargetingMode, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2377969883U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UAbility, UAbility::StaticClass, TEXT("UAbility"), &Z_Registration_Info_UClass_UAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbility), 1325344515U) },
+		{ Z_Construct_UClass_UAbility, UAbility::StaticClass, TEXT("UAbility"), &Z_Registration_Info_UClass_UAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbility), 2523434205U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_2663195034(TEXT("/Script/UEAbilities"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_1179827653(TEXT("/Script/UEAbilities"),
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_ojmar_OneDrive_Documents_GitHub_UEAbilities_UEAbilities_Source_UEAbilities_Public_Ability_h_Statics::EnumInfo));

@@ -33,3 +33,7 @@ void ATargetableActor::Tick(float DeltaTime)
 ETeam ATargetableActor::GetTeam_Implementation() const {
 	return Team;
 }
+
+void ATargetableActor::SetTargeted_Implementation(bool Target)  {
+	bIsTargeted = Target;
+}

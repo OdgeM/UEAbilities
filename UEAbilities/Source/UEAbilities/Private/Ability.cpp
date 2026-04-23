@@ -62,6 +62,7 @@ void UAbility::StartTargeting(AActor* Instigator) {
 }
 
 void UAbility::UpdatePreview(APlayerController* PC, const FHitResult& Hit, FAbilityTargetData& TargetData, UAbilityComponent* AbilityComponent) {
+    if (!TargetingStrategy) return;
     TargetingStrategy->UpdatePreview(PC, Hit, TargetData, AbilityComponent);
 }
 
@@ -85,11 +86,21 @@ bool UAbility::CanActivate(AActor* Instigator) const{
 	return ((CurrentTime - LastUsedTime) >= Cooldown)&&(Stats->CanAffordModifiers(Costs));
 }
 
-bool UAbility::CanActivate(AActor* Instigator, float& CooldownOut) const {
+bool UAbility::CanActivate(AActor* Instigator, float& CooldownOut, bool& CanAfford) const {
 
+    if (!Instigator) return false;
 
     float CurrentTime = Instigator->GetWorld()->GetTimeSeconds();
     CooldownOut = Cooldown - (CurrentTime - LastUsedTime);
+
+    UStatComponent* Stats = Instigator->FindComponentByClass<UStatComponent>();
+    if (!Stats) {
+        CanAfford = false;
+    }
+    else {
+        CanAfford = (Stats->CanAffordModifiers(Costs));
+    }
+   
 
     return CanActivate(Instigator);
 }

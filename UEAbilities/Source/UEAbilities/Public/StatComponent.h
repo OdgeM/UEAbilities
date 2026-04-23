@@ -55,5 +55,6 @@ protected:
 	UPROPERTY(EditAnywhere)
 	TMap<EStatsType, float> RegenRate;
 
+	UPROPERTY(BlueprintReadOnly)
 	TMap<EStatsType, int> TickingStats;
 };

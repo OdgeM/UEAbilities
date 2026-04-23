@@ -46,3 +46,5 @@ ETeam AMyChar::GetTeam_Implementation() const{
 	return Team;
 }
 
+void AMyChar::SetTargeted_Implementation(bool Target)  {
+}

@@ -8,6 +8,7 @@
 #include "GameFramework/Actor.h"
 #include "GameFramework/Pawn.h"
 #include "AbilityComponent.h"
+#include "Targeting/TargetHelpers.h"
 #include "Targeting/AbilityTargeting.h"
 #include "Interfaces/Targetable.h"
 #include "Ability.h"
@@ -75,11 +76,14 @@ void AMyPlayerController::OnConfirm() {
 	{
 
 		if (!bIsTargeting || CurrentAbilityIndex == INDEX_NONE) {
+			bIsMoving = true;
 			MoveTarget = Hit.ImpactPoint;
 			MoveTarget.Z = 0;
 
 			return;
 		}
+		bIsMoving = false;
+		MoveTarget = CurrentPawn->GetActorLocation();
 
 		AActor* HitActor = Hit.GetActor();
 
@@ -165,9 +169,36 @@ void AMyPlayerController::Tick(float DeltaTime) {
 			LastHit = Hit;
 		}
 		else {
-			FVector MoveDirection = (MoveTarget - CurrentPawn->GetActorLocation()).GetSafeNormal();
-			CurrentPawn->AddMovementInput(MoveDirection, 1.0f);
+			if (Hit.GetActor()) {
+				if (Hit.GetActor()->Implements<UTargetable>()) {
+					TargetingHelpers::SetTargeted(Hit.GetActor(), true);
+
+					if (HoveredActor != Hit.GetActor()) {
+						if (HoveredActor != nullptr) {
+							TargetingHelpers::ClearHighlight(HoveredActor);
+						}
+
+						HoveredActor = Hit.GetActor();
+					}
+				}
+				else {
+					if (HoveredActor != nullptr) {
+						TargetingHelpers::ClearHighlight(HoveredActor);
+					}
+					HoveredActor = nullptr;
+				}
+
+			}
+
+
+			if (bIsMoving) {
+				FVector MoveDirection = (MoveTarget - CurrentPawn->GetActorLocation()).GetSafeNormal();
+				CurrentPawn->AddMovementInput(MoveDirection, 1.0f);
+			}
 		}
+
+		
+
 		
 		if (Comp->CanRotate()) {
 			FVector Direction = Hit.ImpactPoint - CurrentPawn->GetActorLocation();
